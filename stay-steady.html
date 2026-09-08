@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不確定的世界裡，如何穩住心神與找回生活方向</title>
+  <meta name="description" content="當政治、經濟、天災與國際局勢同時變動，我們如何在持續不確定中保留心力？從情緒調節、心理彈性、社會支持與可控制範圍，理解如何關心世界，也照顧生活方向。">
+  <style>
+    :root {
+      --bg: #f7f4ed;
+      --surface: #fffdfa;
+      --text: #2b3435;
+      --muted: #647171;
+      --title: #315f62;
+      --accent: #6c7e57;
+      --accent-soft: #edf2e7;
+      --blue-soft: #eaf2f2;
+      --yellow-soft: #f8f0d8;
+      --warn-soft: #faeddf;
+      --border: #d9ded8;
+      --shadow: 0 10px 30px rgba(51, 69, 68, .08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 18px;
+      line-height: 1.82;
+      overflow-wrap: anywhere;
+    }
+
+    a { color: #315f62; text-underline-offset: .18em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid #8a6b35;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .site-shell { width: 100%; }
+    .hero-wrap {
+      width: min(860px, calc(100% - 40px));
+      margin: 24px auto 0;
+    }
+    .hero-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      background: #eee8de;
+    }
+
+    .page-grid {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+    }
+    .content {
+      width: min(860px, 100%);
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    header.article-header { margin-bottom: 30px; }
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .08em;
+      font-size: .92rem;
+      margin: 0 0 12px;
+    }
+    h1 {
+      color: var(--title);
+      font-size: clamp(2rem, 5vw, 3.15rem);
+      line-height: 1.22;
+      margin: 0 0 18px;
+      letter-spacing: -.02em;
+    }
+    .couplet {
+      font-size: clamp(1.06rem, 2.4vw, 1.28rem);
+      color: #54635a;
+      font-weight: 700;
+      margin: 0 0 12px;
+      letter-spacing: .06em;
+    }
+    .subtitle {
+      margin: 0;
+      color: #526061;
+      font-size: 1.08rem;
+    }
+
+    .summary-box {
+      margin: 28px 0 34px;
+      padding: 22px 24px;
+      border: 1px solid #cbdcdc;
+      border-left: 6px solid #6f9293;
+      border-radius: var(--radius);
+      background: var(--blue-soft);
+      box-shadow: 0 6px 18px rgba(49,95,98,.05);
+    }
+    .summary-box h2, .actions h2, .disclaimer h2, .references h2, .tags h2 {
+      margin-top: 0;
+    }
+
+    .mobile-nav {
+      margin: 0 0 30px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 5px 16px rgba(43,52,53,.04);
+    }
+    .mobile-nav summary {
+      cursor: pointer;
+      padding: 15px 18px;
+      font-weight: 700;
+      color: var(--title);
+      min-height: 48px;
+    }
+    .mobile-nav ul { margin: 0; padding: 0 20px 18px 42px; }
+    .mobile-nav a { display: inline-block; padding: 5px 0; }
+
+    article section { scroll-margin-top: 24px; }
+    article section + section { margin-top: 38px; }
+    h2 {
+      color: var(--title);
+      font-size: clamp(1.38rem, 3vw, 1.72rem);
+      line-height: 1.38;
+      margin: 0 0 14px;
+    }
+    h3 { color: #405f5a; font-size: 1.12rem; }
+    p { margin: 0 0 16px; }
+    sup a { font-weight: 700; text-decoration: none; }
+
+    .tip-box {
+      margin: 34px 0;
+      border: 1px solid #d9d3be;
+      border-radius: var(--radius);
+      background: #fffaf0;
+      overflow: hidden;
+    }
+    .tip-box summary {
+      cursor: pointer;
+      min-height: 48px;
+      padding: 16px 20px;
+      font-weight: 800;
+      color: #665a3f;
+      background: var(--yellow-soft);
+    }
+    .tip-box .tip-content { padding: 18px 22px 20px; }
+    .tip-box ul { margin: 0; padding-left: 1.35em; }
+    .tip-box li + li { margin-top: 8px; }
+
+    .core-message {
+      margin: 38px 0 0;
+      padding: 24px 26px;
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      border: 1px solid #d4dfc8;
+      box-shadow: var(--shadow);
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #425741;
+    }
+
+    .actions {
+      margin-top: 42px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    .action-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .action-card {
+      padding: 18px;
+      border-radius: 14px;
+      background: #f5f7f2;
+      border: 1px solid #dce2d6;
+    }
+    .action-card strong { color: #4b6450; display: block; margin-bottom: 8px; }
+
+    .disclaimer {
+      margin-top: 38px;
+      padding: 24px 26px;
+      background: var(--warn-soft);
+      border: 1px solid #ead3bb;
+      border-radius: var(--radius);
+    }
+
+    .tags, .references {
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: #edf1ee;
+      color: #4c5c56;
+      font-size: .94rem;
+    }
+    .references {
+      background: #f1f2ef;
+      border: 1px solid #d9ddda;
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      color: #4f5959;
+      font-size: 16px;
+      line-height: 1.72;
+    }
+    .references ol { margin: 0; padding-left: 1.35em; }
+    .references li + li { margin-top: 12px; }
+    .references a { word-break: break-word; }
+    .more-reading { margin-top: 20px; }
+
+    .desktop-nav {
+      display: none;
+      position: fixed;
+      top: 110px;
+      left: calc(50% + 460px);
+      width: 235px;
+      max-height: calc(100vh - 140px);
+      overflow: auto;
+      padding: 16px 16px 18px;
+      background: rgba(255,253,250,.96);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+    .desktop-nav strong {
+      display: block;
+      color: var(--title);
+      margin-bottom: 8px;
+    }
+    .desktop-nav ul { margin: 0; padding-left: 1.2em; font-size: 15px; line-height: 1.55; }
+    .desktop-nav li + li { margin-top: 5px; }
+    .desktop-nav a { display: inline-block; padding: 3px 0; }
+
+    footer {
+      width: min(860px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 0 0 48px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    @media (min-width: 1320px) {
+      .desktop-nav { display: block; }
+      .mobile-nav { display: none; }
+    }
+
+    @media (max-width: 900px) {
+      body { font-size: 17px; }
+      .hero-wrap, .page-grid { width: min(100% - 28px, 860px); }
+      .content { padding-top: 34px; }
+      .action-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      body { font-size: 16px; line-height: 1.78; }
+      .hero-wrap, .page-grid { width: calc(100% - 24px); }
+      .hero-wrap { margin-top: 12px; }
+      .hero-image { border-radius: 16px; }
+      .content { padding: 28px 0 56px; }
+      h1 { font-size: 2rem; }
+      .summary-box, .actions, .disclaimer, .references, .core-message { padding: 18px; border-radius: 14px; }
+      .couplet { letter-spacing: .03em; }
+      footer { width: calc(100% - 24px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <div class="hero-wrap">
+      <img class="hero-image" src="stay-steady-in-uncertain-times.webp" alt="窗外雲層與城市變動，一位女子在溫暖室內寫下重要事項，象徵在不確定中把注意力帶回生活。" width="1200" height="800">
+    </div>
+
+    <div class="page-grid">
+      <aside class="desktop-nav" aria-label="段落導覽">
+        <strong>段落導覽</strong>
+        <ul>
+          <li><a href="#why-alert">為什麼容易警戒</a></li>
+          <li><a href="#uncertainty">不確定為何耗心力</a></li>
+          <li><a href="#resilience">韌性不是硬撐</a></li>
+          <li><a href="#care-and-boundaries">關心與界線並存</a></li>
+          <li><a href="#control">把行動拉回可控制</a></li>
+          <li><a href="#actions">三個可以一起開始的做法</a></li>
+          <li><a href="#references">參考資料</a></li>
+        </ul>
+      </aside>
+
+      <main class="content" id="main-content">
+        <article>
+          <header class="article-header">
+            <p class="eyebrow">不確定感與心理韌性</p>
+            <h1>不確定的世界裡，如何穩住心神與找回生活方向</h1>
+            <p class="couplet">紛擾聲中守住岸，<br>把心帶回生活安</p>
+            <p class="subtitle">從不確定感、心理韌性與可控制範圍出發，理解如何關心外界，也保留足夠的心力過我們重視的生活。</p>
+          </header>
+
+          <section class="summary-box" aria-labelledby="summary-title">
+            <h2 id="summary-title">重點摘要</h2>
+            <p>政治、經濟、天災與國際局勢同時變動時，我們可能更容易反覆查消息、預想風險，注意力也被不確定感拉走。研究顯示，情緒調節、心理彈性與社會支持和較具韌性的反應有關，但不是保證不焦慮的公式。我們可以關心世界，同時分辨可控制與不可控制的事，把有限心力帶回關係、健康、工作與真正重視的生活方向。讓關心成為可持續的參與，而不是無止境的警戒。</p>
+          </section>
+
+          <details class="mobile-nav">
+            <summary>展開段落導覽</summary>
+            <ul>
+              <li><a href="#why-alert">為什麼容易警戒</a></li>
+              <li><a href="#uncertainty">不確定為何耗心力</a></li>
+              <li><a href="#resilience">韌性不是硬撐</a></li>
+              <li><a href="#care-and-boundaries">關心與界線並存</a></li>
+              <li><a href="#control">把行動拉回可控制</a></li>
+              <li><a href="#actions">三個可以一起開始的做法</a></li>
+              <li><a href="#references">參考資料</a></li>
+            </ul>
+          </details>
+
+          <section id="why-alert">
+            <h2>外界同時變動，心裡容易進入警戒模式</h2>
+            <p>政治爭論、經濟起伏、價值衝突、天災或國際局勢接連出現時，我們可能會感覺「每件事都很重要」，注意力因此持續掃描下一個變化。這種警戒本身是保護性的反應，幫助我們辨認風險；但當訊息沒有明確終點，心裡也可能長時間維持待命，較難真正休息。</p>
+            <p>一篇涵蓋疫情、經濟危機等情境的系統性回顧指出，多數研究觀察到危機期間情緒困擾或其他心理健康問題增加，但不同族群、地區與研究設計的結果並不完全一致。<sup><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup> 因此，比較合適的理解不是「世界一亂就一定焦慮」，而是外界壓力可能增加心理負荷，每個人的反應仍受到既有處境、資源與支持影響。如果我們發現自己即使沒有直接遇到危險，仍頻繁想確認最新消息，這也不必被解讀成「太脆弱」。很多公共事件本來就帶有真實的不確定與價值衝突，讓人難以快速得到結論；先承認「現在確實有些事還沒有答案」，比逼自己立刻想通所有局勢更貼近現實。</p>
+          </section>
+
+          <section id="uncertainty">
+            <h2>不確定最累人的地方，是一直想把答案找齊</h2>
+            <p>不確定感常會催促我們再查一次消息、再確認一種說法，或在腦中預演各種最壞情況。短時間確認資訊可以幫助決策，但如果每一次搜尋都只能換來下一個問題，注意力就容易被「還不知道」綁住，工作、吃飯、睡眠與關係也可能被擠到旁邊。</p>
+            <p>一篇納入九十一項研究、超過三萬名參與者的統合分析發現，較難容忍不確定性，和較多不利的情緒調節方式呈中度相關，也和較多適應性的調節方式呈反向關聯。<sup><a href="#ref-2" aria-label="參考資料 2">[2]</a></sup> 這類結果說明的是群體層次的關聯，不是個人的診斷，也不能推論只要改變某一種想法，就能消除焦慮。另一個常見陷阱，是把「知道更多」和「更能控制」畫上等號；資訊在需要做決定時很重要，但訊息量超過可行動範圍後，新增內容未必增加掌控感。我們可以問自己：現在是在取得決策需要的資訊，還是在用搜尋暫時壓住不安？兩者都可以理解，但後者若反覆出現，就值得替注意力留一個出口。</p>
+          </section>
+
+          <section id="resilience">
+            <h2>心理韌性不是硬撐，而是讓資源和情境配得上</h2>
+            <p>心理韌性可以理解為在壓力存在時，仍有機會維持或逐步恢復心理功能，而不是永遠平靜、不受影響。面對可以行動的問題，我們可能需要蒐集資訊、討論與參與；面對暫時無法改變的局勢，接受有限控制、調整注意力，反而可能更符合當下需求。</p>
+            <p>針對社會危機與挑戰的系統性回顧整理五十項研究，發現較好的情緒調節、心理彈性與較高的自覺社會支持，和較具韌性的心理反應有關。<sup><a href="#ref-3" aria-label="參考資料 3">[3]</a></sup> 不過研究也指出，多數效果偏小，部分證據不一致，且不少研究使用便利樣本。這提醒我們，沒有一套「照做就不焦慮」的公式，重點比較像是讓可用資源和眼前情境互相配合。社會支持也不只是有人替我們解決問題；能被理解、有人陪著整理情緒、在需要時得到實際協助，都可能成為可用資源。相反地，若某些討論讓我們長時間陷在責備、對立或無止境爭辯中，暫時拉開距離，也可以是保護關係與心理能量的一部分。</p>
+          </section>
+
+          <details class="tip-box">
+            <summary>提示：怎麼判斷「資訊已經夠用」？</summary>
+            <div class="tip-content">
+              <ul>
+                <li>目前是否有一個需要我們做決定或採取行動的問題？</li>
+                <li>再看十則消息，會改變今天能做的事情嗎？</li>
+                <li>看完之後，我們是更清楚下一步，還是只更想繼續刷新？</li>
+              </ul>
+            </div>
+          </details>
+
+          <section id="care-and-boundaries">
+            <h2>關心世界，可以和保護心力同時存在</h2>
+            <p>穩定心神並不是對公共議題冷漠，也不是要求自己不要生氣、難過或擔心。更實際的做法，是先區分「需要知道的資訊」和「反覆刺激但暫時無助於行動的資訊」；當我們已經知道足以做決定的內容，就可以容許自己離開畫面，把注意力帶回正在生活的人與事。</p>
+            <p>我們也可以替關心世界設定一個有邊界的方式，例如固定時段閱讀可信來源，避免睡前持續更新，或在討論升高到讓身體緊繃、心跳加快時先暫停。這不是逃避，而是在保存之後仍能參與、思考與照顧關係的能力。我們不需要用「完全不看」或「一直追」二選一；比較可持續的方式，是依事件和自己的角色調整資訊量：需要做決策時多看一些，已經沒有新行動時就收回一些。這種彈性，也讓關心不必以犧牲睡眠、工作與陪伴為代價。</p>
+          </section>
+
+          <section id="control">
+            <h2>把可控制的範圍縮小，行動才容易重新出現</h2>
+            <p>當腦中同時裝著太多巨大的問題，任何一件日常小事都可能顯得微不足道；但穩定往往從具體而有限的行動開始。我們可以把事情分成三類：現在能做、之後再處理、目前無法控制。這個分類不會讓外界變簡單，卻能幫助注意力重新找到落點。</p>
+            <p>接著，把生活方向翻譯成今天能完成的一步：若重視關係，也許是好好吃一頓飯或傳一則關心訊息；若重視健康，也許是照常散步與睡覺；若重視公共參與，也許是選定一個可靠來源、一次具體行動，而不是整天不停追蹤。每天留十分鐘寫下「今天最重要的一件事」，就是把價值從抽象擔憂帶回可完成行動的一種方式。</p>
+          </section>
+
+          <div class="core-message" role="note" aria-label="核心訊息">
+            關心世界，不等於把每一個無法控制的變化都留在心裡；我們可以把注意力放回今天能做的一步，讓重要的生活方向繼續往前。
+          </div>
+
+          <section class="actions" id="actions">
+            <h2>三個可以一起開始的具體做法</h2>
+            <div class="action-list">
+              <div class="action-card">
+                <strong>我們可以一起從十分鐘開始</strong>
+                每天留十分鐘，寫下「今天最重要的一件事」，再補上一個今天能完成的小步驟。
+              </div>
+              <div class="action-card">
+                <strong>我們先試著替資訊設一個邊界</strong>
+                選定一到兩個可信來源與固定查看時段；已經沒有新的可行動資訊時，就暫時離開畫面。
+              </div>
+              <div class="action-card">
+                <strong>我們不妨先觀察三種範圍</strong>
+                把擔心寫成「現在能做、之後處理、目前無法控制」，優先處理第一類，也允許第三類暫時沒有答案。
+              </div>
+            </div>
+          </section>
+
+          <section class="disclaimer" aria-labelledby="help-title">
+            <h2 id="help-title">什麼時候值得尋求協助？</h2>
+            <p>如果擔憂、煩躁、失眠、反覆確認資訊或難以專心的情況持續存在，已明顯影響工作、關係、飲食或睡眠，我們可以邀請合格的醫療或心理專業人員一起評估。若出現自傷念頭、無法確保自身安全，或有需要立即處理的急性危險，請立即尋求醫療協助。</p>
+            <p><strong>重要提醒：</strong>本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。</p>
+          </section>
+
+          <section class="tags" aria-labelledby="tags-title">
+            <h2 id="tags-title">延伸標籤</h2>
+            <div class="tag-list" aria-label="文章標籤">
+              <span class="tag">#不確定感</span>
+              <span class="tag">#心理韌性</span>
+              <span class="tag">#情緒調節</span>
+              <span class="tag">#社會支持</span>
+              <span class="tag">#焦慮管理</span>
+              <span class="tag">#資訊界線</span>
+              <span class="tag">#生活方向</span>
+            </div>
+          </section>
+
+          <section class="references" id="references" aria-labelledby="ref-title">
+            <h2 id="ref-title">參考資料</h2>
+            <ol>
+              <li id="ref-1">Asper M, Osika W, Dalman C, Pöllänen E, Simonsson O, Flodin P, et al. Effects of the COVID-19 pandemic and previous pandemics, epidemics and economic crises on mental health: systematic review. BJPsych Open. 2022;8(6):e181. doi: <a href="https://doi.org/10.1192/bjo.2022.587" rel="noopener noreferrer">10.1192/bjo.2022.587</a>.</li>
+              <li id="ref-2">Sahib A, Chen J, Cárdenas D, Calear AL. Intolerance of uncertainty and emotion regulation: A meta-analytic and systematic review. Clin Psychol Rev. 2023;101:102270. doi: <a href="https://doi.org/10.1016/j.cpr.2023.102270" rel="noopener noreferrer">10.1016/j.cpr.2023.102270</a>.</li>
+              <li id="ref-3">Schäfer SK, Supke M, Kausmann C, Schaubruch LM, Lieb K, Cohrdes C. A systematic review of individual, social, and societal resilience factors in response to societal challenges and crises. Commun Psychol. 2024;2(1):92. doi: <a href="https://doi.org/10.1038/s44271-024-00138-w" rel="noopener noreferrer">10.1038/s44271-024-00138-w</a>.</li>
+            </ol>
+            <p class="more-reading">延伸衛教資料：<a href="https://nazareth.elaiis.com/#edu-articles" rel="noopener noreferrer">欣寧身心診所衛教文章</a></p>
+          </section>
+        </article>
+      </main>
+    </div>
+
+    <footer>
+      本頁以一般民眾可理解的方式整理研究結果，研究關聯不等同因果，也不以單一研究取代完整醫療判斷。
+    </footer>
+  </div>
+</body>
+</html>
