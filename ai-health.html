@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI健康回答再流暢，也不能取代可靠完整判斷｜健康資訊五問</title>
+  <meta name="description" content="AI能快速整理健康資訊，但流暢不等於正確。用五個追問辨認事實、推測、缺漏、其他可能與來源，理解AI回答的限制，為重要健康判斷多留一道安全檢查。">
+  <style>
+    :root {
+      --bg: #f7f4ed;
+      --paper: #fffdf9;
+      --ink: #283438;
+      --muted: #5b696d;
+      --teal: #23666a;
+      --teal-dark: #194c50;
+      --teal-soft: #e4f1ef;
+      --blue-soft: #eaf2f8;
+      --yellow-soft: #fbf3d9;
+      --lavender: #7251a8;
+      --line: #cfddd9;
+      --shadow: 0 12px 32px rgba(33, 71, 74, 0.09);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% 6%, rgba(232, 219, 255, 0.38), transparent 25rem),
+        linear-gradient(180deg, #fbfaf6 0, var(--bg) 38rem);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 18px;
+      line-height: 1.82;
+      overflow-wrap: anywhere;
+    }
+
+    a { color: var(--teal-dark); }
+
+    a:hover { color: var(--lavender); }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #c99222;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 10px;
+      left: 10px;
+      transform: translateY(-160%);
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: #ffffff;
+      color: var(--teal-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .page {
+      width: min(100% - 32px, 860px);
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .hero {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(35, 102, 106, 0.14);
+      border-radius: 26px;
+      background: #eadfca;
+      box-shadow: var(--shadow);
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .title-block {
+      padding: 42px 24px 26px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--lavender);
+      font-size: 0.84rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0 auto 16px;
+      color: var(--teal-dark);
+      font-size: clamp(2rem, 5.2vw, 3.2rem);
+      line-height: 1.24;
+      letter-spacing: 0.015em;
+    }
+
+    .couplet {
+      margin: 0 0 10px;
+      color: #5d477e;
+      font-size: clamp(1.06rem, 2.5vw, 1.28rem);
+      font-weight: 720;
+      letter-spacing: 0.09em;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .summary {
+      margin: 8px 0 28px;
+      padding: 24px 28px;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--teal);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: rgba(255, 253, 249, 0.92);
+      box-shadow: 0 8px 24px rgba(33, 71, 74, 0.06);
+    }
+
+    .summary h2,
+    .mobile-toc h2 {
+      margin: 0 0 8px;
+      color: var(--teal-dark);
+      font-size: 1.05rem;
+    }
+
+    .summary p { margin: 0; }
+
+    .mobile-toc {
+      margin: 0 0 34px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fffdf9;
+      box-shadow: 0 6px 18px rgba(33, 71, 74, 0.05);
+    }
+
+    .mobile-toc summary {
+      min-height: 50px;
+      padding: 13px 18px;
+      cursor: pointer;
+      color: var(--teal-dark);
+      font-weight: 760;
+    }
+
+    .mobile-toc nav { padding: 0 18px 16px; }
+
+    .toc-list {
+      display: grid;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 9px;
+      text-decoration: none;
+    }
+
+    .toc-list a:hover { background: var(--teal-soft); }
+
+    article {
+      padding: clamp(24px, 5vw, 48px);
+      border: 1px solid rgba(35, 102, 106, 0.12);
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    section { scroll-margin-top: 24px; }
+
+    section + section { margin-top: 44px; }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--teal-dark);
+      font-size: clamp(1.32rem, 3vw, 1.58rem);
+      line-height: 1.42;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--teal-dark);
+      font-size: 1.06rem;
+      line-height: 1.45;
+    }
+
+    p { margin: 0 0 1em; }
+
+    sup a {
+      padding: 0 2px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .five-questions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 22px 0 18px;
+    }
+
+    .question-card {
+      flex: 1 1 calc(50% - 7px);
+      min-width: 0;
+      padding: 18px;
+      border: 1px solid #ccdfdc;
+      border-radius: 16px;
+      background: var(--teal-soft);
+    }
+
+    .question-card:nth-child(2n) { background: var(--blue-soft); }
+    .question-card:last-child { flex-basis: 100%; }
+    .question-card p { margin: 0; font-size: 0.96rem; }
+
+    .prompt-box {
+      margin-top: 24px;
+      border: 1px solid #ddcfaa;
+      border-radius: 16px;
+      background: var(--yellow-soft);
+    }
+
+    .prompt-box summary {
+      min-height: 52px;
+      padding: 14px 18px;
+      cursor: pointer;
+      color: #654d1d;
+      font-weight: 760;
+    }
+
+    .prompt-content { padding: 0 18px 18px; }
+
+    .copy-prompt {
+      margin: 0;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      color: #3f4849;
+      font-size: 0.96rem;
+      white-space: normal;
+    }
+
+    .source-check {
+      margin: 18px 0 0;
+      padding-left: 1.25em;
+    }
+
+    .source-check li + li { margin-top: 8px; }
+
+    .safety {
+      padding: 20px 22px;
+      border-left: 5px solid #c9823a;
+      border-radius: 0 15px 15px 0;
+      background: #fff1e5;
+    }
+
+    .safety p:last-child { margin-bottom: 0; }
+
+    .core-message {
+      margin-top: 46px;
+      padding: 28px;
+      border: 2px solid #8bbdb5;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #e5f3ee, #f2f0fb);
+      color: #173f42;
+      font-size: 1.16rem;
+      font-weight: 760;
+      text-align: center;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .action {
+      flex: 1 1 190px;
+      min-width: 0;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #f7fbfa;
+    }
+
+    .action p { margin: 0; font-size: 0.95rem; }
+
+    footer {
+      margin-top: 32px;
+      padding: 28px;
+      border-radius: 18px;
+      background: #edf2f0;
+      color: #465559;
+      font-size: 0.91rem;
+    }
+
+    footer h2 { font-size: 1.16rem; }
+
+    .notice {
+      margin-bottom: 24px;
+      font-weight: 650;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tags li {
+      padding: 5px 10px;
+      border: 1px solid #bdcec9;
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    .references {
+      margin: 0;
+      padding-left: 1.35em;
+    }
+
+    .references li + li { margin-top: 12px; }
+
+    .references a,
+    .more-link { word-break: break-word; }
+
+    .more-link {
+      display: inline-block;
+      margin-top: 22px;
+      font-weight: 700;
+    }
+
+    .side-toc { display: none; }
+
+    @media (min-width: 1400px) {
+      .mobile-toc { display: none; }
+
+      .side-toc {
+        position: fixed;
+        z-index: 10;
+        top: 28px;
+        right: max(24px, calc((100vw - 1380px) / 2));
+        display: block;
+        width: 224px;
+        max-height: calc(100vh - 56px);
+        overflow: auto;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 253, 249, 0.97);
+        box-shadow: var(--shadow);
+      }
+
+      .side-toc h2 { font-size: 1rem; }
+      .side-toc .toc-list a { font-size: 0.88rem; }
+    }
+
+    @media (max-width: 700px) {
+      body { font-size: 16px; }
+      .page { width: min(100% - 24px, 860px); padding-top: 12px; }
+      .hero { border-radius: 18px; }
+      .title-block { padding: 30px 8px 22px; }
+      .summary { padding: 20px; }
+      article { padding: 24px 18px; border-radius: 18px; }
+      section + section { margin-top: 36px; }
+      .five-questions,
+      .actions { flex-direction: column; }
+      .question-card,
+      .question-card:last-child,
+      .action { flex-basis: auto; }
+      .core-message { padding: 22px 18px; }
+      footer { padding: 22px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要內容</a>
+
+  <div class="page">
+    <header>
+      <figure class="hero">
+        <img src="ai-health-answers-five-checks.webp" width="1200" height="800" alt="一位成人在明亮書桌前，用放大鏡仔細查看電腦整理出的多張空白資訊卡，象徵查證AI健康資訊">
+      </figure>
+
+      <div class="title-block">
+        <p class="eyebrow">AI 健康資訊素養</p>
+        <h1>AI健康回答再流暢，也不能取代可靠完整判斷</h1>
+        <p class="couplet">流暢答案先細看，追問來源心自安</p>
+        <p class="subtitle">學會用五個追問，看見健康回答中的事實、推測、缺漏與證據界線。</p>
+      </div>
+
+      <section class="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">重點摘要</h2>
+        <p>AI能在幾秒內整理症狀、壓力與情緒資訊，文字又完整流暢，很容易讓我們把「像專業」誤認為「已證實」。但健康判斷需要病程、用藥、身體檢查與個人情境，AI可能漏掉關鍵資料，也可能把推測說得很肯定。我們可先分辨這段回答只用來整理問題，還是將影響重要決定；重要資訊不妨用五個問題追問事實、缺漏、其他可能、反例與來源，再由可靠資料或合格醫療人員確認。</p>
+      </section>
+
+      <details class="mobile-toc">
+        <summary>展開段落導覽</summary>
+        <nav aria-label="頁首段落導覽">
+          <ul class="toc-list">
+            <li><a href="#fluency">流暢不等於正確</a></li>
+            <li><a href="#role">AI能做與不能做</a></li>
+            <li><a href="#five-questions">五個快速追問</a></li>
+            <li><a href="#sources">把來源查到原文</a></li>
+            <li><a href="#safety">為健康判斷留安全門</a></li>
+            <li><a href="#actions">三個具體做法</a></li>
+            <li><a href="#references">參考資料</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main id="main-content">
+      <article>
+        <section id="fluency" class="main-copy" aria-labelledby="fluency-title">
+          <h2 id="fluency-title">說得完整，為什麼仍可能不可靠？</h2>
+          <p>大型語言模型是依照大量文字中的規律，產生接下來最可能出現的內容。它很擅長把答案寫得通順、有條理，卻不代表每一句都已查證，也不代表它真的理解我們的身體、生活與病程。當資料不足時，模型仍可能補出看似合理的細節，甚至提供不存在或與主張不相符的文獻。</p>
+          <p>同一個問題若換一種說法、少放一項背景，或改用不同版本的模型，回答也可能跟著改變。這種變動不表示每次都錯，卻提醒我們不要把一次生成的文字當成穩定的檢查結果。</p>
+          <p>精神與身體健康的判斷，常要同時看症狀持續多久、嚴重程度、功能變化、用藥與物質使用、過去病史、身體檢查及他人觀察。JAMA Psychiatry的專家觀點提醒，AI摘要可能虛構內容、漏掉重要訊息，或把互相矛盾的資料整理成過度順暢的故事；因此應把AI視為需要查核的工具，而不是能自主決定的臨床人員。<sup><a href="#ref-1" aria-label="參考資料1">[1]</a></sup></p>
+        </section>
+
+        <section id="role" class="main-copy" aria-labelledby="role-title">
+          <h2 id="role-title">AI適合整理問題，不適合替我們下診斷</h2>
+          <p>AI可以協助把零散感受整理成就醫時想問的問題、用一般語言解釋術語，或列出值得進一步查詢的方向。它不能直接觀察表情與行為、做身體檢查、核對完整病歷，也無法為錯誤建議承擔臨床責任；診斷、藥物調整與危機評估仍需要合格專業人員。</p>
+          <p>一項納入50位醫師、使用困難病例的隨機臨床試驗發現，單純讓醫師取得大型語言模型，並未顯著提升診斷推理表現。這項研究不等於AI沒有價值，也不能直接推論一般民眾使用的結果；它提醒我們，擁有工具不等於自然會用得安全，互動方式、訓練、情境與人工監督都很重要。<sup><a href="#ref-2" aria-label="參考資料2">[2]</a></sup></p>
+        </section>
+
+        <section id="five-questions" class="main-copy" aria-labelledby="questions-title">
+          <h2 id="questions-title">五個快速追問，讓不確定性浮出來</h2>
+          <p>專家提出「指定、引出、追問、落地查證」的互動循環，核心不是找到神奇提示詞，而是把AI的任務與證據邊界說清楚。以下五問是依這個概念轉成一般健康情境的說法；它們能幫助我們檢視答案，卻不能保證AI一定答對。<sup><a href="#ref-1" aria-label="參考資料1">[1]</a></sup></p>
+
+          <div class="five-questions">
+            <div class="question-card">
+              <h3>一、這是已知事實，還是推測？</h3>
+              <p>請AI分開列出已知資料、推論與尚不確定之處，避免把「可能」讀成「就是」。</p>
+            </div>
+            <div class="question-card">
+              <h3>二、還缺哪些資料？</h3>
+              <p>追問病程、嚴重度、用藥、功能變化或檢查資料是否不足，也提醒我們不要急著補上答案。</p>
+            </div>
+            <div class="question-card">
+              <h3>三、有沒有其他可能？</h3>
+              <p>請它列出替代解釋，以及每一種可能支持與不支持的線索，減少只盯著第一個說法。</p>
+            </div>
+            <div class="question-card">
+              <h3>四、什麼情況會讓答案不成立？</h3>
+              <p>尋找反例、矛盾資料與需要改變判斷的警訊，能看見答案原本藏起來的條件。</p>
+            </div>
+            <div class="question-card">
+              <h3>五、根據到底從哪裡來？</h3>
+              <p>要求可核對的原始研究、臨床指引或官方醫療資料，並請AI明說找不到來源的部分。</p>
+            </div>
+          </div>
+
+          <details class="prompt-box">
+            <summary>展開可直接使用的五問提示</summary>
+            <div class="prompt-content">
+              <p class="copy-prompt">請把剛才的健康回答重新整理：一、分開列出已知事實、推測與不確定之處；二、說明還缺哪些資料；三、列出其他合理可能；四、指出哪些新資料會讓目前答案不成立；五、為每項重要主張提供可核對的原始來源，找不到就明確寫出。請勿替我診斷或調整治療。</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="sources" class="main-copy" aria-labelledby="sources-title">
+          <h2 id="sources-title">有引用還不夠，來源要真的支持那句話</h2>
+          <p>AI列出連結或DOI時，我們仍要打開原文，核對作者、標題、期刊與研究內容是否一致。接著再看資料屬於臨床指引、系統性回顧、個別研究或專家觀點，研究對象是否和問題相近，以及結論有沒有被誇大；一篇真實文獻也可能被用來支持它沒有研究過的事情。</p>
+          <p>若AI只能提供新聞、社群貼文或搜尋摘要，可以把它當作找線索的起點，再沿著連結尋找出版者頁面、正式指引或研究全文。找不到原始資料時，最誠實的結論可以是「目前無法確認」，而不是勉強選一個聽起來最完整的答案。</p>
+          <p>2025年一項研究把68題醫學選擇題的熟悉答案格式改變後，六個模型的正確率都下降，顯示高分可能受題型規律影響。不過研究只測試特定題庫與設定，不能直接代表真實診間或每一次對話；較合理的理解是，漂亮的基準成績仍不足以證明模型在陌生情境中穩定推理。<sup><a href="#ref-3" aria-label="參考資料3">[3]</a></sup></p>
+          <ul class="source-check">
+            <li>來源找得到，書目與連結彼此一致。</li>
+            <li>原文真的談到AI聲稱的重點，而不只題目相似。</li>
+            <li>研究設計、對象與限制，適合回答我們正在問的問題。</li>
+          </ul>
+        </section>
+
+        <section id="safety" class="main-copy" aria-labelledby="safety-title">
+          <h2 id="safety-title">為重要健康判斷，多留一道安全門</h2>
+          <p>若AI的說法會影響是否就醫、是否服藥、要不要停止治療，或涉及懷孕、兒童、高齡者與多重用藥，我們可以先停一下，把問題與來源帶給醫師、藥師或其他合格專業人員確認。使用公開AI服務時，也不妨移除姓名、身分證字號、病歷號、地址與可辨識影像，因為資料如何保存與使用會依服務而異。</p>
+          <div class="safety">
+            <p><strong>需要立即處理的情況：</strong>若出現呼吸困難、劇烈胸痛、意識改變、抽搐，或有明確自傷、傷人念頭與迫切危險，請不要等待AI繼續回答，應立即聯絡119或就近急診。AI對話不能取代緊急評估。</p>
+          </div>
+        </section>
+
+        <aside class="core-message" aria-label="文章核心訊息">
+          AI最適合當作問題整理器，而不是答案終點；重要健康資訊，多問幾句，也回到原始來源與專業評估。
+        </aside>
+
+        <section id="actions" aria-labelledby="actions-title">
+          <h2 id="actions-title">三個可以一起開始的具體做法</h2>
+          <div class="actions">
+            <div class="action">
+              <h3>先分三欄</h3>
+              <p>我們可以一起從把答案分成「已知、推測、未知」開始，先看清楚哪一句最需要查證。</p>
+            </div>
+            <div class="action">
+              <h3>開一個原始來源</h3>
+              <p>我們先試著打開一個最重要的引用，核對題名、作者、內容與AI的說法是否相符。</p>
+            </div>
+            <div class="action">
+              <h3>記下就醫問題</h3>
+              <p>我們不妨先觀察哪些症狀仍說不清楚，記下時間、變化與影響，帶著問題向專業人員確認。</p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <section aria-labelledby="notice-title">
+        <h2 id="notice-title">重要提醒</h2>
+        <p class="notice">本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。</p>
+      </section>
+
+      <section aria-labelledby="tags-title">
+        <h2 id="tags-title">延伸標籤</h2>
+        <ul class="tags" aria-label="文章標籤">
+          <li>#AI健康資訊</li>
+          <li>#健康資訊查證</li>
+          <li>#大型語言模型</li>
+          <li>#醫療資訊素養</li>
+          <li>#數位健康安全</li>
+          <li>#原始資料查核</li>
+          <li>#就醫溝通準備</li>
+        </ul>
+      </section>
+
+      <section id="references" aria-labelledby="references-title">
+        <h2 id="references-title">參考資料</h2>
+        <ol class="references">
+          <li id="ref-1">Paulus MP, Torous J. LLMs as clinical instruments—toward verifiable reasoning. JAMA Psychiatry. 2026;83(9):896-897. doi:<a href="https://doi.org/10.1001/jamapsychiatry.2026.2211" rel="noopener noreferrer">10.1001/jamapsychiatry.2026.2211</a>.</li>
+          <li id="ref-2">Goh E, Gallo R, Hom J, et al. Large language model influence on diagnostic reasoning: a randomized clinical trial. JAMA Netw Open. 2024;7(10):e2440969. doi:<a href="https://doi.org/10.1001/jamanetworkopen.2024.40969" rel="noopener noreferrer">10.1001/jamanetworkopen.2024.40969</a>.</li>
+          <li id="ref-3">Bedi S, Jiang Y, Chung P, Koyejo S, Shah N. Fidelity of medical reasoning in large language models. JAMA Netw Open. 2025;8(8):e2526021. doi:<a href="https://doi.org/10.1001/jamanetworkopen.2025.26021" rel="noopener noreferrer">10.1001/jamanetworkopen.2025.26021</a>.</li>
+        </ol>
+        <a class="more-link" href="https://nazareth.elaiis.com/#edu-articles" rel="noopener noreferrer">瀏覽更多延伸衛教資料</a>
+      </section>
+    </footer>
+  </div>
+
+  <aside class="side-toc" aria-label="桌面版固定段落導覽">
+    <h2>段落導覽</h2>
+    <nav>
+      <ul class="toc-list">
+        <li><a href="#fluency">流暢不等於正確</a></li>
+        <li><a href="#role">AI能做與不能做</a></li>
+        <li><a href="#five-questions">五個快速追問</a></li>
+        <li><a href="#sources">把來源查到原文</a></li>
+        <li><a href="#safety">為健康判斷留安全門</a></li>
+        <li><a href="#actions">三個具體做法</a></li>
+        <li><a href="#references">參考資料</a></li>
+      </ul>
+    </nav>
+  </aside>
+</body>
+</html>
