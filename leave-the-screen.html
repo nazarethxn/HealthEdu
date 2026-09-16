@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面對螢幕感到不安或難受時，先退出不是逃避</title>
+  <meta name="description" content="使用手機、平板或電腦時若感到不安、眼睛不適、頭暈或噁心，先退出並停止瀏覽。本文說明如何辨認身心訊號、安頓當下、採取低門檻做法，以及何時需要尋求專業協助。">
+  <style>
+    :root {
+      --page: #f7f4ec;
+      --paper: #fffdf8;
+      --ink: #273432;
+      --muted: #5d6b68;
+      --heading: #246c68;
+      --heading-dark: #174d4b;
+      --sage: #dcebe2;
+      --sky: #e5f1f3;
+      --apricot: #f8e5cb;
+      --lavender: #eee8f7;
+      --line: #cddbd6;
+      --link: #1c625f;
+      --shadow: 0 12px 34px rgba(40, 74, 68, 0.09);
+      --radius: 22px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 18px;
+      line-height: 1.82;
+      overflow-wrap: anywhere;
+    }
+
+    a { color: var(--link); text-underline-offset: 0.2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid #b15f20;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--heading-dark);
+      color: #fff;
+      transform: translateY(-180%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .page-shell {
+      width: min(100% - 32px, 860px);
+      margin: 28px auto 64px;
+    }
+
+    .hero {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(36, 108, 104, 0.16);
+      border-radius: var(--radius);
+      background: #efe8da;
+      box-shadow: var(--shadow);
+    }
+    .hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .title-block {
+      padding: 42px 14px 24px;
+      text-align: center;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--heading);
+      font-size: 0.92rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0 auto 16px;
+      color: var(--heading-dark);
+      font-size: clamp(2rem, 5vw, 3.35rem);
+      line-height: 1.22;
+      letter-spacing: 0.015em;
+    }
+    .couplet {
+      margin: 0 0 12px;
+      color: #6e4b83;
+      font-size: clamp(1.08rem, 2.4vw, 1.3rem);
+      font-weight: 750;
+      letter-spacing: 0.08em;
+    }
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .summary-card, .practice-card, .notice, .references, .core-message {
+      border-radius: 18px;
+    }
+    .summary-card {
+      margin: 12px 0 28px;
+      padding: 24px 26px;
+      border-left: 6px solid #6ea299;
+      background: var(--sky);
+    }
+    .summary-card h2, .practice-card h2, .references h2, .notice h2 {
+      margin: 0 0 10px;
+      color: var(--heading-dark);
+      font-size: 1.35rem;
+      line-height: 1.4;
+    }
+    .summary-card p { margin: 0; }
+
+    details.toc-mobile, details.tip-box {
+      margin: 0 0 30px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: 0 5px 18px rgba(40, 74, 68, 0.06);
+    }
+    details summary {
+      min-height: 48px;
+      padding: 13px 18px;
+      color: var(--heading-dark);
+      font-weight: 760;
+      cursor: pointer;
+    }
+    .toc-mobile ul, .side-nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .toc-mobile ul { padding: 0 18px 16px; }
+    .toc-mobile a, .side-nav a {
+      display: block;
+      border-radius: 9px;
+      text-decoration: none;
+    }
+    .toc-mobile a { padding: 8px 10px; }
+    .toc-mobile a:hover, .side-nav a:hover { background: var(--sage); }
+
+    article {
+      padding: 30px clamp(20px, 5vw, 54px) 42px;
+      border: 1px solid rgba(36, 108, 104, 0.13);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .article-section {
+      padding: 16px 0 22px;
+      scroll-margin-top: 24px;
+    }
+    .article-section + .article-section {
+      border-top: 1px solid #e6ece8;
+    }
+    .article-section h2 {
+      margin: 0 0 12px;
+      color: var(--heading);
+      font-size: clamp(1.4rem, 3.5vw, 1.72rem);
+      line-height: 1.45;
+    }
+    .article-section p { margin: 0 0 1em; }
+    .article-section p:last-child { margin-bottom: 0; }
+    sup a { padding: 0 2px; font-weight: 750; text-decoration: none; }
+
+    .core-message {
+      margin: 18px 0 8px;
+      padding: 24px 26px;
+      border: 2px solid #dfb77b;
+      background: #fff5e6;
+      color: #61441d;
+      font-size: 1.14rem;
+      font-weight: 760;
+      text-align: center;
+    }
+
+    .practice-card {
+      margin: 32px 0 26px;
+      padding: 28px;
+      background: var(--sage);
+    }
+    .practices {
+      display: grid;
+      gap: 14px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: practice;
+    }
+    .practices li {
+      position: relative;
+      min-height: 62px;
+      padding: 15px 16px 15px 58px;
+      border: 1px solid rgba(36, 108, 104, 0.13);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.72);
+      counter-increment: practice;
+    }
+    .practices li::before {
+      position: absolute;
+      top: 15px;
+      left: 16px;
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--heading);
+      color: #fff;
+      content: counter(practice);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    details.tip-box { background: var(--lavender); }
+    .tip-box .tip-content { padding: 0 20px 18px; }
+    .tip-box p { margin: 0; }
+
+    .notice {
+      margin: 26px 0 0;
+      padding: 24px 26px;
+      border-left: 6px solid #cf864c;
+      background: var(--apricot);
+    }
+    .notice p { margin: 0; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 30px 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tags li {
+      padding: 6px 12px;
+      border: 1px solid #c9d6d2;
+      border-radius: 999px;
+      background: #f3f7f5;
+      color: #405b57;
+      font-size: 0.92rem;
+    }
+
+    .references {
+      padding: 24px 26px;
+      border: 1px solid #d9e1de;
+      background: #f0f3f1;
+      color: #43514f;
+      font-size: 0.91rem;
+      line-height: 1.65;
+    }
+    .references ol { margin: 0; padding-left: 1.35em; }
+    .references li + li { margin-top: 10px; }
+    .references a { word-break: break-word; }
+
+    footer {
+      padding: 28px 12px 10px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.94rem;
+    }
+    footer p { margin: 0 0 12px; }
+
+    .side-nav { display: none; }
+
+    @media (min-width: 760px) {
+      .page-shell { width: min(100% - 64px, 860px); }
+      .practices { grid-template-columns: repeat(3, 1fr); }
+      .practices li { padding: 54px 16px 18px; }
+      .practices li::before { top: 15px; left: 16px; }
+    }
+
+    @media (min-width: 1400px) {
+      .toc-mobile { display: none; }
+      .side-nav {
+        position: fixed;
+        z-index: 10;
+        top: 88px;
+        right: 26px;
+        display: block;
+        width: 230px;
+        max-height: calc(100vh - 112px);
+        overflow: auto;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 253, 248, 0.96);
+        box-shadow: var(--shadow);
+      }
+      .side-nav h2 {
+        margin: 0 0 8px;
+        color: var(--heading-dark);
+        font-size: 1rem;
+      }
+      .side-nav a { padding: 7px 9px; font-size: 0.9rem; line-height: 1.45; }
+    }
+
+    @media (max-width: 520px) {
+      body { font-size: 16px; }
+      .page-shell { width: min(100% - 24px, 860px); margin-top: 12px; }
+      .hero, article { border-radius: 16px; }
+      .title-block { padding: 30px 4px 18px; }
+      article { padding: 22px 18px 30px; }
+      .summary-card, .practice-card, .notice, .references { padding: 20px; }
+      .couplet span { display: block; }
+      .couplet .divider { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page-shell { width: 100%; margin: 0; }
+      .side-nav, .toc-mobile, .skip-link { display: none !important; }
+      article, .hero { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要內容</a>
+
+  <aside class="side-nav" aria-labelledby="side-nav-title">
+    <h2 id="side-nav-title">段落導覽</h2>
+    <nav aria-label="桌面版段落導覽">
+      <ul>
+        <li><a href="#leave-first">先退出，再處理</a></li>
+        <li><a href="#signals">分辨身心訊號</a></li>
+        <li><a href="#not-weakness">退出不是脆弱</a></li>
+        <li><a href="#evidence">研究怎麼說</a></li>
+        <li><a href="#after-leaving">留下可用線索</a></li>
+        <li><a href="#seek-help">何時尋求協助</a></li>
+        <li><a href="#practices">三個具體做法</a></li>
+        <li><a href="#references">參考資料</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="page-shell">
+    <header>
+      <figure class="hero">
+        <img src="leave-the-screen-when-uncomfortable.webp" width="1200" height="800" alt="一位女子把手機放下，轉頭望向明亮窗外，讓身心從螢幕刺激中休息">
+      </figure>
+      <div class="title-block">
+        <p class="eyebrow">數位使用與自我照顧</p>
+        <h1>面對螢幕感到不安或難受時，先退出不是逃避</h1>
+        <p class="couplet"><span>不安升起先放手</span><span class="divider" aria-hidden="true">　</span><span>心回此刻再抬眸</span></p>
+        <p class="subtitle">從辨認身心訊號、離開刺激到決定何時需要專業協助，讓退出成為照顧自己的第一步。</p>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="summary-card" aria-labelledby="summary-title">
+        <h2 id="summary-title">重點摘要</h2>
+        <p>使用手機、平板、電腦或虛擬實境裝置時，若不安、胸悶、眼睛疼、頭暈或噁心開始出現，第一步可以是立即退出並停止瀏覽。這不是軟弱，也不必先證明原因；先離開刺激，才有空間辨認是內容引發情緒、長時間用眼，還是其他身體狀況。離開後可以先坐穩、看著固定物，讓呼吸回到自然節奏，不必急著回去驗證自己。若不適持續、反覆或影響生活，再邀請專業人員一起評估。</p>
+      </section>
+
+      <details class="toc-mobile">
+        <summary>展開段落導覽</summary>
+        <nav aria-label="手機與平板段落導覽">
+          <ul>
+            <li><a href="#leave-first">先退出，再處理</a></li>
+            <li><a href="#signals">分辨身心訊號</a></li>
+            <li><a href="#not-weakness">退出不是脆弱</a></li>
+            <li><a href="#evidence">研究怎麼說</a></li>
+            <li><a href="#after-leaving">留下可用線索</a></li>
+            <li><a href="#seek-help">何時尋求協助</a></li>
+            <li><a href="#practices">三個具體做法</a></li>
+            <li><a href="#references">參考資料</a></li>
+          </ul>
+        </nav>
+      </details>
+
+      <article>
+        <section class="article-section" id="leave-first" aria-labelledby="leave-first-title">
+          <h2 id="leave-first-title">不舒服出現時，先退出再處理</h2>
+          <p>當螢幕上的內容讓我們愈看愈不安，或身體開始出現眼睛刺痛、心跳加快、頭暈、噁心等感覺，第一個做法就是離開頁面、關閉應用程式或放下裝置，不再繼續瀏覽。此刻不必把內容看完、不必回覆，也不必逼自己判斷「是不是想太多」；先中止刺激，讓注意力回到安全的現場。</p>
+          <p>若正在使用虛擬實境裝置或看到快速移動畫面，退出後可以先坐穩或扶住固定物，等不適消退再走動。若正在駕駛、操作機械或位於高處，應優先停到安全位置，再處理裝置。</p>
+        </section>
+
+        <section class="article-section" id="signals" aria-labelledby="signals-title">
+          <h2 id="signals-title">「難受」可能來自不同的身心訊號</h2>
+          <p>不安可能和令人害怕、憤怒、羞愧或充滿衝突的內容有關，也可能來自通知不斷、資訊太多、擔心錯過消息，或反覆查找仍得不到確定答案。身體也可能以呼吸變急、胸口緊、肩頸僵硬、手心出汗回應壓力；這些感受值得被接住，但單憑一次反應不能判定焦慮症或所謂的「手機成癮」。</p>
+          <p>另一類不適較像用眼或動態畫面造成的負荷，例如乾澀、灼熱、視線模糊、頭痛、暈眩或噁心。數位眼疲勞研究的定義與測量方式仍不一致，但較長時間近距離看螢幕，的確常和這些症狀一起出現。<sup><a href="#ref-3" aria-label="參考資料三">[3]</a></sup> 先停止使用，比急著購買濾鏡、眼鏡或保健產品更直接。</p>
+        </section>
+
+        <section class="article-section" id="not-weakness" aria-labelledby="not-weakness-title">
+          <h2 id="not-weakness-title">退出不是脆弱，也不是永遠逃避</h2>
+          <p>有時我們會擔心，一退出就代表承受力不足，或錯過重要資訊。其實「現在先停」和「永遠不面對」是兩件不同的事；當情緒或身體已經過載，繼續滑動往往只會讓辨認與選擇更困難。先拉開距離，是把決定權拿回來，而不是替自己貼上不能使用電子產品的標籤。</p>
+          <p>等狀態穩定後，我們可以再決定是否需要回來、改由可信任的人陪同查看、只讀必要部分，或乾脆不再接觸。若是工作、就醫或聯絡所需，也可以換成語音、紙本、較大螢幕或請他人協助；目標不是忍耐，而是用較可承受的方法完成真正重要的事。</p>
+        </section>
+
+        <section class="article-section" id="evidence" aria-labelledby="evidence-title">
+          <h2 id="evidence-title">研究支持減少刺激，但效果不是人人相同</h2>
+          <p>一項成人隨機試驗讓參與者連續兩週封鎖手機行動網路，但保留通話與簡訊；研究觀察到注意力、主觀幸福感與部分心理健康指標改善。<sup><a href="#ref-1" aria-label="參考資料一">[1]</a></sup> 這說明減少持續連線可能帶來幫助，卻不能直接證明每次感到不安時退出就能治療焦慮，也不表示所有人都需要完全停用網路。</p>
+          <p>另一篇系統性回顧與統合分析整合暫停社群媒體的研究後，沒有發現情緒福祉或生活滿意度穩定改善；納入研究的介入長度、平台與參與者差異也很大。<sup><a href="#ref-2" aria-label="參考資料二">[2]</a></sup> 因此，較穩妥的理解是：當下不舒服就先離開，是保護自己的界線；較長期要停多久、停哪些內容，則可以依實際反應調整。</p>
+        </section>
+
+        <section class="article-section" id="after-leaving" aria-labelledby="after-leaving-title">
+          <h2 id="after-leaving-title">退出之後，留下可辨認的線索</h2>
+          <p>離開螢幕後，可以先把雙腳踩穩地面，慢慢看向房間裡幾個固定物，喝口水，或走到較安靜、光線舒服的地方。這些做法不是強迫情緒立刻消失，而是協助我們從快速變動的畫面與訊息，回到此刻可確認的環境；若閉眼會更暈，就保持視線看著固定目標。</p>
+          <p>稍微穩定後，再簡短記下當時看的內容、使用多久、最先出現的感受，以及停止後多久緩解。也可以標記哪些平台、畫面速度、聲音或互動較容易引發反應，以及當天是否睡眠不足、空腹或已承受其他壓力；這些背景是理解規律的線索，不是責怪自己的清單。一次紀錄不能做診斷，但連續幾次的規律可以幫助我們調整通知、避開特定內容、縮短使用時間，也能在需要就醫或諮商時提供較清楚的線索，不必為了「測試自己」重新打開讓人難受的頁面。</p>
+        </section>
+
+        <section class="article-section" id="seek-help" aria-labelledby="seek-help-title">
+          <h2 id="seek-help-title">哪些情況值得尋求專業協助</h2>
+          <p>若不安反覆出現，已影響睡眠、工作、上學或人際互動，或我們為了確認消息而難以停止瀏覽，可以邀請心理師、精神科醫師或其他合格專業人員一起評估。若眼痛、視力改變、頭痛、頭暈或噁心在停止使用後仍持續或愈來愈明顯，也需要由眼科、神經科、耳鼻喉科或家醫科依症狀判斷，而不是只歸因於螢幕。</p>
+          <p>若出現突然的單側無力、說話困難、意識改變、劇烈頭痛、胸痛、呼吸困難、昏厥，或有傷害自己或他人的念頭，請立即停止使用裝置並尋求緊急醫療協助。這些警訊需要即時處理，不宜等待休息後自行觀察。</p>
+        </section>
+
+        <div class="core-message" role="note" aria-label="文章核心訊息">
+          只要瀏覽電子裝置時感到不安或難受，第一步就是退出並停止瀏覽；先讓自己離開刺激，再決定下一步。
+        </div>
+
+        <section class="practice-card" id="practices" aria-labelledby="practices-title">
+          <h2 id="practices-title">三個可以一起開始的具體做法</h2>
+          <ol class="practices">
+            <li><strong>我們可以一起從退出開始：</strong>關閉頁面、放下裝置，至少先不再加入新的內容。</li>
+            <li><strong>我們先試著回到現場：</strong>看固定物、感覺雙腳著地，讓呼吸回到自然節奏。</li>
+            <li><strong>我們不妨先觀察規律：</strong>只記下內容、時間與症狀，不重新瀏覽來驗證自己。</li>
+          </ol>
+        </section>
+
+        <details class="tip-box">
+          <summary>收合提示：若工作上無法立刻離開螢幕</summary>
+          <div class="tip-content">
+            <p>可以先切換到空白頁面、關閉聲音與通知、縮小動態影像，並告知身旁的人需要短暫離席。若工作要求接觸特定刺激內容，邀請主管或職業健康人員一起討論替代流程與休息安排。</p>
+          </div>
+        </details>
+
+        <section class="notice" aria-labelledby="notice-title">
+          <h2 id="notice-title">重要提醒</h2>
+          <p>本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。</p>
+        </section>
+
+        <ul class="tags" aria-label="延伸標籤">
+          <li>#螢幕不適</li>
+          <li>#數位界線</li>
+          <li>#情緒覺察</li>
+          <li>#數位眼疲勞</li>
+          <li>#停止瀏覽</li>
+          <li>#焦慮訊號</li>
+          <li>#自我照顧</li>
+        </ul>
+
+        <section class="references" id="references" aria-labelledby="references-title">
+          <h2 id="references-title">參考資料</h2>
+          <ol>
+            <li id="ref-1">Castelo N, Kushlev K, Ward AF, Esterman M, Reiner PB. Blocking mobile internet on smartphones improves sustained attention, mental health, and subjective well-being. PNAS Nexus. 2025;4(2):pgaf017. doi: <a href="https://doi.org/10.1093/pnasnexus/pgaf017">10.1093/pnasnexus/pgaf017</a>.</li>
+            <li id="ref-2">Lemahieu L, Vander Zwalmen Y, Mennes M, Koster EHW, Vanden Abeele MMP. The effects of social media abstinence on affective well-being and life satisfaction: a systematic review and meta-analysis. Sci Rep. 2025;15:7581. doi: <a href="https://doi.org/10.1038/s41598-025-90984-3">10.1038/s41598-025-90984-3</a>.</li>
+            <li id="ref-3">Mataftsi A, Seliniotaki AK, Moutzouri S, Prousali E, Darusman KR, Adio AO, Haidich AB, Nischal KK. Digital eye strain in young screen users: a systematic review. Prev Med. 2023;170:107493. doi: <a href="https://doi.org/10.1016/j.ypmed.2023.107493">10.1016/j.ypmed.2023.107493</a>.</li>
+          </ol>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p><a href="https://nazareth.elaiis.com/#edu-articles">延伸閱讀：欣寧身心診所衛教文章</a></p>
+    </footer>
+  </div>
+</body>
+</html>
