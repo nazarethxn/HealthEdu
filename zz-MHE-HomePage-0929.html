@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="欣寧身心診所身心小語：依主題探索心理健康衛教，快速找到目前可閱讀的文章，以及睡眠、情緒、人際與治療等閱讀方向。">
+  <title>欣寧身心診所身心小語｜心理健康衛教主題導覽</title>
+  <style>
+    :root{
+      --bg:#f8f5f1;--surface:#fff;--surface-soft:#faf7f3;
+      --ink:#332d2a;--muted:#675f5a;--brand:#955542;
+      --brand-deep:#783e30;--sage:#657665;--line:#e7e0da;
+      --shadow:0 6px 20px rgba(70,50,40,.06);--content:880px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--bg);color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      font-size:17px;line-height:1.72;overflow-wrap:anywhere;
+    }
+    a{color:var(--brand-deep);text-underline-offset:.2em}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:4px}
+    .skip-link{position:absolute;top:-5rem;left:1rem;background:#fff;padding:.6rem 1rem;z-index:100;border:2px solid var(--brand)}
+    .skip-link:focus{top:1rem}
+    .hero-wrap{width:min(100% - 32px,1160px);margin:0 auto;padding-top:24px}
+    .hero{overflow:hidden;border-radius:18px;background:#eee8e1;box-shadow:var(--shadow)}
+    .hero img{display:block;width:100%;height:auto;object-fit:contain}
+    .layout{width:min(100% - 32px,1160px);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:30px}
+    main{min-width:0;width:100%;max-width:var(--content);margin:28px auto 64px}
+    .page{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:clamp(26px,4vw,48px)}
+    h1,h2,h3,h4{color:#493832;line-height:1.38}
+    h1{font-size:clamp(1.85rem,4vw,2.7rem);letter-spacing:.005em;margin:.1em 0 .45em}
+    h2{font-size:clamp(1.4rem,3vw,1.75rem);margin:2rem 0 .85rem}
+    h3{font-size:1.23rem;margin:0 0 .5rem}
+    h4{font-size:1.1rem;margin:0 0 .35rem}
+    [id]{scroll-margin-top:28px}
+    h2[id]{border-left:4px solid var(--brand);padding:.12rem 0 .12rem .8rem;background:none}
+    .eyebrow{font-size:.92rem;font-weight:700;letter-spacing:.06em;color:var(--brand-deep);margin:0 0 .4rem}
+    .lead{font-size:1.06rem;color:#574f4a;margin:0}
+    .intro-box{background:var(--surface-soft);border-left:3px solid var(--sage);padding:15px 18px;margin:1.5rem 0 0}
+    .intro-box p{margin:0}
+    .section-note{color:var(--muted);margin:-.35rem 0 1.2rem}
+    .topic-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    .topic-index a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;padding:9px 13px;border:1px solid var(--line);border-radius:9px;background:var(--surface);text-decoration:none;font-weight:600;line-height:1.4}
+    .topic-index a:hover,.topic-index a:focus-visible{background:var(--surface-soft);border-color:#c7b8aa}
+    .topic-index small{color:var(--sage);font-size:.72rem;white-space:nowrap;font-weight:700}
+    .article-group{border-top:1px solid var(--line);padding-top:1.35rem;margin-top:1.5rem}
+    .article-group:first-of-type{border-top:0;margin-top:0;padding-top:0}
+    .article-group h3{border-left:3px solid var(--sage);padding-left:.65rem}
+    .group-intro{margin:0 0 1rem;color:var(--muted)}
+    .article-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .reading-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:18px;min-width:0;display:flex;flex-direction:column}
+    .reading-card p{margin:.2rem 0 0;color:#5f5650}
+    .article-link{display:inline-flex;align-items:center;gap:.35rem;align-self:flex-start;margin-top:auto;padding:1rem 0 .1rem;min-height:44px;font-weight:700;text-decoration:none}
+    .article-link:hover{text-decoration:underline}
+    .article-link span{font-size:1.2em}
+    .topic-summaries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}
+    .topic-summary{border-top:1px solid var(--line);padding:1.2rem 0}
+    .topic-summary h3{font-size:1.12rem;margin:0 0 .35rem}
+    .topic-summary p{margin:0;color:#5f5650}
+    .topic-summary strong{font-weight:650;color:var(--ink)}
+    .actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .action-card{border-top:2px solid var(--sage);background:var(--surface-soft);padding:16px;border-radius:0 0 10px 10px}
+    .action-card h3{font-size:1.05rem;margin:.3rem 0}
+    .action-card p{margin:0;color:#5f5650}
+    .num{font-size:.88rem;font-weight:800;color:var(--sage)}
+    details.tip{border:1px solid var(--line);border-radius:10px;margin:1.6rem 0;overflow:hidden}
+    details.tip summary{cursor:pointer;padding:12px 16px;min-height:48px;font-weight:700}
+    details.tip .inside{padding:0 16px 14px}
+    details.tip p{margin:.2rem 0}
+    .source-box{border-top:1px solid var(--line);margin-top:2rem;padding-top:.3rem}
+    .source-box ul{padding-left:1.3rem;margin:.5rem 0}
+    .source-box li+li{margin-top:.4rem}
+    .notice{background:var(--surface-soft);border-left:3px solid var(--brand);padding:14px 18px}
+    .notice p{margin:.2rem 0}.notice p+p{margin-top:.8rem}
+    footer{text-align:center;color:var(--muted);font-size:.9rem;margin:0 auto 36px}
+    .desktop-nav{display:none}
+    .nav-mobile{width:min(100% - 32px,880px);margin:14px auto 0;background:#fff;border:1px solid var(--line);border-radius:10px}
+    .nav-mobile summary{cursor:pointer;padding:11px 16px;min-height:48px;font-weight:700;color:var(--brand-deep)}
+    .nav-mobile nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:0 10px 10px}
+    .nav-mobile a{padding:9px;min-height:44px;text-decoration:none;border-radius:6px}
+    .nav-mobile a:hover{background:var(--surface-soft)}
+    @media(min-width:1200px){
+      .layout{grid-template-columns:minmax(0,1fr) 205px;align-items:start}
+      main{margin-left:0;margin-right:0}
+      .nav-mobile{display:none}
+      .desktop-nav{display:block;position:sticky;top:24px;max-height:calc(100vh - 48px);overflow:auto;margin-top:28px;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 4px 16px rgba(70,50,40,.06)}
+      .desktop-nav strong{display:block;padding:2px 8px 8px;color:var(--muted);font-size:.85rem}
+      .desktop-nav a{display:block;border-left:3px solid transparent;padding:5px 8px;font-size:.88rem;line-height:1.4;text-decoration:none;border-radius:0 5px 5px 0}
+      .desktop-nav a:hover{background:var(--surface-soft)}
+      .desktop-nav a.is-active{border-left-color:var(--brand);background:var(--surface-soft);font-weight:700;color:var(--brand-deep)}
+    }
+    @media(max-width:760px){
+      body{font-size:16px;line-height:1.72}
+      .hero-wrap{width:min(100% - 24px,1160px);padding-top:12px}
+      .hero{border-radius:12px}
+      .hero img{display:block;width:100%;height:auto;object-fit:contain}
+      .layout{width:min(100% - 24px,1160px)}
+      main{margin:16px auto 42px}
+      .page{padding:24px 18px;border-radius:14px}
+      .topic-index{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .article-list,.topic-summaries,.actions{grid-template-columns:1fr}
+      .nav-mobile{width:min(100% - 24px,880px)}
+      h2{margin-top:1.85rem}
+    }
+    @media(max-width:390px){.topic-index{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Topic color accents */
+[data-topic="sleep"]{--topic-color:#597687}
+[data-topic="workplace"]{--topic-color:#597687}
+[data-topic="anxiety"]{--topic-color:#A05F4B}
+[data-topic="addiction"]{--topic-color:#A05F4B}
+[data-topic="mood"]{--topic-color:#826985}
+[data-topic="relationship"]{--topic-color:#826985}
+[data-topic="family"]{--topic-color:#657C61}
+[data-topic="older-adult"]{--topic-color:#657C61}
+[data-topic="treatment"]{--topic-color:#657C61}
+[data-topic="adolescent"]{--topic-color:#626F96}
+[data-topic="digital"]{--topic-color:#626F96}
+[data-topic="general"]{--topic-color:#947239}
+
+.topic-index a[data-topic]{border-left:3px solid var(--topic-color);color:var(--ink)}
+.topic-index a[data-topic]:hover,.topic-index a[data-topic]:focus-visible{border-left-color:var(--topic-color)}
+.article-group[data-topic] h3,.topic-summary[data-topic] h3{border-left:3px solid var(--topic-color);padding-left:.65rem}
+.article-group[data-topic] .reading-card{border-top:2px solid var(--topic-color)}
+@media(min-width:1200px){.desktop-nav a[data-topic].is-active{border-left-color:var(--topic-color)}}
+@media(forced-colors:active){.topic-index a[data-topic],.article-group[data-topic] h3,.topic-summary[data-topic] h3,.article-group[data-topic] .reading-card{border-color:CanvasText}}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要內容</a>
+  <header>
+    <div class="hero-wrap"><div class="hero">
+      <img src="zz-mental-health-education-banner-logo-0928.webp" alt="欣寧身心診所身心小語：在忙碌的生活中，也記得照顧好自己的心。人物、貓與診所標誌的溫暖插畫。" width="1859" height="846" fetchpriority="high">
+    </div></div>
+    <details class="nav-mobile">
+      <summary>展開段落導覽</summary>
+      <nav aria-label="行動版段落導覽">
+        <a href="#topics">主題快速入口</a><a href="#articles">目前可閱讀的文章</a>
+        <a href="#anxiety" data-topic="anxiety">焦慮與壓力</a>
+<a href="#older-adult" data-topic="older-adult">老年心理</a>
+<a href="#digital" data-topic="digital">數位心理健康</a>
+<a href="#general" data-topic="general">一般衛教</a>
+<a href="#sleep" data-topic="sleep">睡眠健康</a>
+<a href="#mood" data-topic="mood">憂鬱與情緒</a>
+<a href="#family" data-topic="family">家庭與親子</a>
+<a href="#relationship" data-topic="relationship">人際與親密關係</a>
+<a href="#adolescent" data-topic="adolescent">青少年心理</a>
+<a href="#workplace" data-topic="workplace">職場心理</a>
+<a href="#addiction" data-topic="addiction">成癮問題</a>
+<a href="#treatment" data-topic="treatment">精神疾病與治療</a>
+        <a href="#start-together">三個可以一起開始的做法</a><a href="#disclaimer">提醒</a>
+      </nav>
+    </details>
+  </header>
+  <div class="layout">
+    <main id="main-content" class="page">
+      <p class="eyebrow">欣寧身心診所身心小語</p>
+      <h1>將心理健康知識，轉化為日常生活中可以理解與運用的方向</h1>
+      <p class="lead">心理健康不只是在「生病之後」才需要關心。睡眠、壓力、情緒、人際、家庭、工作與數位生活，都可能影響我們每天的身心狀態。這個衛教首頁把常見主題分門別類，讓你能用較容易理解的方式找到合適的閱讀入口。</p>
+      <div class="intro-box"><p><strong>閱讀原則：</strong>衛教資訊適合用來增加理解、整理問題與準備就醫時的提問，但不能取代個別評估、診斷或治療。若症狀持續、明顯影響生活功能，或你對自己的安全感到擔心，請尋求專業協助。</p></div>
+
+      <section aria-labelledby="topics">
+        <h2 id="topics">主題快速入口</h2>
+        <p class="section-note">選擇你關心的主題。有文章的分類會標示「有文章」。</p>
+        <nav class="topic-index" aria-label="主題快速入口"><a href="#sleep" data-topic="sleep"><span>睡眠健康</span><small>有文章</small></a>
+<a href="#anxiety" data-topic="anxiety"><span>焦慮與壓力</span><small>有文章</small></a>
+<a href="#mood" data-topic="mood"><span>憂鬱與情緒</span></a>
+<a href="#family" data-topic="family"><span>家庭與親子</span></a>
+<a href="#relationship" data-topic="relationship"><span>人際與親密關係</span></a>
+<a href="#adolescent" data-topic="adolescent"><span>青少年心理</span></a>
+<a href="#older-adult" data-topic="older-adult"><span>老年心理</span><small>有文章</small></a>
+<a href="#workplace" data-topic="workplace"><span>職場心理</span></a>
+<a href="#addiction" data-topic="addiction"><span>成癮問題</span></a>
+<a href="#digital" data-topic="digital"><span>數位心理健康</span><small>有文章</small></a>
+<a href="#treatment" data-topic="treatment"><span>精神疾病與治療</span></a>
+<a href="#general" data-topic="general"><span>一般衛教</span><small>有文章</small></a></nav>
+      </section>
+
+      <section aria-labelledby="articles">
+        <h2 id="articles">目前可閱讀的文章</h2>
+        <p class="section-note">依主題整理已發布的衛教文章。</p>
+        <section class="article-group" aria-labelledby="anxiety" data-topic="anxiety">
+<h3 id="anxiety">焦慮與壓力</h3>
+<div class="article-list">
+<article class="reading-card">
+          <h4>專注到忘了時間：認識心流與真正的心理休息</h4>
+          <p>了解心流為何讓時間感改變，以及如何用十五分鐘創造剛剛好的專注。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/flow-focus.html" aria-label="閱讀：專注到忘了時間：認識心流與真正的心理休息">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>不確定的世界裡，如何穩住心神與找回生活方向</h4>
+          <p>從不確定感、心理韌性與可控制範圍出發，理解如何關心外界，也保留足夠的心力過我們重視的生活。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/stay-steady.html" aria-label="閱讀：不確定的世界裡，如何穩住心神與找回生活方向">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>遭遇不公平，不等於讓委屈接管往後的生活</h4>
+          <p>理解委屈、反芻與界線之間的差別，讓我們既能保護權益，也能把注意力帶回重要生活。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/unfair-treatment.html" aria-label="閱讀：遭遇不公平，不等於讓委屈接管往後的生活">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>不急著追問為什麼：練習不帶評判地接納當下感受</h4>
+          <p>從急著找答案，到允許感受存在，理解接納與界線如何同行。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/accept-feelings.html" aria-label="閱讀：不急著追問為什麼：練習不帶評判地接納當下感受">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+</div>
+</section><section class="article-group" aria-labelledby="older-adult" data-topic="older-adult">
+<h3 id="older-adult">老年心理</h3>
+<p class="group-intro">關心孤獨、退休適應、睡眠、身體疾病、認知變化與照顧壓力，並從功能與生活品質的角度理解需要。</p>
+<div class="article-list">
+<article class="reading-card">
+          <h4>退休花費如何兼顧當下生活與晚年安全：健康與時間的考量</h4>
+          <p>讀懂健康與消費的研究，也一起思考今天與未來如何相互照顧。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/retirement.html" aria-label="閱讀：退休花費如何兼顧當下生活與晚年安全：健康與時間的考量">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+</div>
+</section><section class="article-group" aria-labelledby="digital" data-topic="digital">
+<h3 id="digital">數位心理健康</h3>
+<div class="article-list">
+<article class="reading-card">
+          <h4>AI愈像懂我們的朋友，愈需要留一點判斷距離</h4>
+          <p>當 AI 回應愈貼近情緒、愈能快速肯定我們時，也更需要分辨：它是在協助整理想法，還是在順著我們原本的偏見與期待。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/ai-sycophancy.html" aria-label="閱讀：AI愈像懂我們的朋友，愈需要留一點判斷距離">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>AI健康回答再流暢，也不能取代可靠完整判斷</h4>
+          <p>學會用五個追問，看見健康回答中的事實、推測、缺漏與證據界線。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/ai-health.html" aria-label="閱讀：AI健康回答再流暢，也不能取代可靠完整判斷">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>真正的聲援不是網路公審：受委屈時如何彼此支持</h4>
+          <p>理解群眾回應帶來的支持感，也分辨聲援、究責與騷擾之間的界線。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/real-support.html" aria-label="閱讀：真正的聲援不是網路公審：受委屈時如何彼此支持">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>面對螢幕感到不安或難受時，先退出不是逃避</h4>
+          <p>從辨認身心訊號、離開刺激到決定何時需要專業協助，讓退出成為照顧自己的第一步。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/leave-the-screen.html" aria-label="閱讀：面對螢幕感到不安或難受時，先退出不是逃避">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+</div>
+</section><section class="article-group" aria-labelledby="general" data-topic="general">
+<h3 id="general">一般衛教</h3>
+<div class="article-list">
+<article class="reading-card">
+          <h4>每個人的差異未必是缺陷：努力也能讓天賦被看見</h4>
+          <p>從不同的表達方式與 Stacey Leadbeatter 的歌唱經驗理解：困難可以真實存在，也不必遮住一個人的能力與可能。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/different-traits.html" aria-label="閱讀：每個人的差異未必是缺陷：努力也能讓天賦被看見">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>心理學術語不是答案：用自己的話說出真實感受</h4>
+          <p>從「我是什麼類型」回到「我發生了什麼」：看懂術語的用途與界線，練習更貼近自己的表達方式。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/psychology-terms.html" aria-label="閱讀：心理學術語不是答案：用自己的話說出真實感受">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+<article class="reading-card">
+          <h4>樂觀不是假裝沒事：在低谷中培養心理韌性</h4>
+          <p>為心靈裝上陽光濾鏡：看見希望，也看清下一步</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/optimism-resilience.html" aria-label="閱讀：樂觀不是假裝沒事：在低谷中培養心理韌性">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+</div>
+</section>
+<section class="article-group" aria-labelledby="sleep" data-topic="sleep">
+<h3 id="sleep">睡眠健康</h3>
+<p class="group-intro"><strong>從睡得著、睡得穩，到白天有精神</strong> — 認識作息、失眠、睡眠習慣與日間功能之間的關係，並學習何時適合先調整生活，何時應進一步評估。</p>
+<div class="article-list">
+<article class="reading-card">
+          <h4>依醫囑使用助眠藥：認識依賴、成癮與失智風險</h4>
+          <p>釐清身體依賴與成癮的差異，了解助眠藥與失智研究的證據限制，並整理與醫療團隊討論用藥與睡眠治療的方向。</p>
+          <a class="article-link" href="https://nazarethxn.github.io/HealthEdu/sleep-medication-dep.html" aria-label="閱讀：依醫囑使用助眠藥：認識依賴、成癮與失智風險">閱讀這篇文章 <span aria-hidden="true">→</span></a>
+        </article>
+</div>
+</section>
+      </section>
+
+      <section aria-labelledby="more-topics">
+        <h2 id="more-topics">其他主題</h2>
+        <p class="section-note">這些主題目前尚無獨立文章，以下提供閱讀方向。</p>
+        <div class="topic-summaries"><section class="topic-summary" aria-labelledby="mood" data-topic="mood">
+      <h3 id="mood">憂鬱與情緒</h3>
+      <p><strong>不只看心情，也看功能與持續時間</strong> — 情緒低落有時是短暫反應，有時則需要更多支持。衛教內容會協助讀者辨認情緒、睡眠、食慾、動機與生活功能的變化。</p>
+    </section><section class="topic-summary" aria-labelledby="family" data-topic="family">
+      <h3 id="family">家庭與親子</h3>
+      <p><strong>把「誰對誰錯」換成「發生了什麼」</strong> — 從溝通、界線、教養壓力與家庭角色切入，理解衝突背後的需要，建立較可持續的互動方式。</p>
+    </section><section class="topic-summary" aria-labelledby="relationship" data-topic="relationship">
+      <h3 id="relationship">人際與親密關係</h3>
+      <p><strong>關係需要靠近，也需要界線</strong> — 整理依附、信任、衝突修復、拒絕與表達需求等主題，讓「相處」不只是忍耐，也能包含理解與協調。</p>
+    </section><section class="topic-summary" aria-labelledby="adolescent" data-topic="adolescent">
+      <h3 id="adolescent">青少年心理</h3>
+      <p><strong>看見發展中的大腦、同儕與自我認同</strong> — 聚焦情緒波動、學業壓力、社群使用、同儕互動與親子溝通，並提醒成人在支持青少年時保留尊重與安全界線。</p>
+    </section><section class="topic-summary" aria-labelledby="workplace" data-topic="workplace">
+      <h3 id="workplace">職場心理</h3>
+      <p><strong>工作壓力不只來自工作量</strong> — 也可能來自角色模糊、失去控制感、人際衝突、輪班與長期恢復不足。學習辨認耗竭訊號與可調整的環節。</p>
+    </section><section class="topic-summary" aria-labelledby="addiction" data-topic="addiction">
+      <h3 id="addiction">成癮問題</h3>
+      <p><strong>從「為什麼停不下來」理解行為循環</strong> — 以不污名化的方式認識物質使用與重複行為背後的誘因、渴求、獎賞與復發風險，並強調專業支持的重要性。</p>
+    </section><section class="topic-summary" aria-labelledby="treatment" data-topic="treatment">
+      <h3 id="treatment">精神疾病與治療</h3>
+      <p><strong>把診斷與治療資訊說清楚</strong> — 整理常見精神疾病、藥物治療、心理治療與回診追蹤的基本概念，幫助讀者準備問題，並與醫療專業人員共同討論。</p>
+    </section></div>
+      </section>
+
+      <section aria-labelledby="start-together">
+        <h2 id="start-together">三個可以一起開始的具體做法</h2>
+        <div class="actions">
+          <section class="action-card"><div class="num" aria-hidden="true">01</div><h3>每天留一個身體訊號</h3><p>用一句話記錄今天的睡眠、疲累、心悸、胃口或肌肉緊繃。先觀察，不急著評價。</p></section>
+          <section class="action-card"><div class="num" aria-hidden="true">02</div><h3>把困擾寫成可描述的問題</h3><p>例如把「我很糟」改成「最近兩週晚上常醒，白天很難專心」。具體描述更容易找到下一步。</p></section>
+          <section class="action-card"><div class="num" aria-hidden="true">03</div><h3>保留一個可以求助的人</h3><p>可以是家人、朋友、老師、主管或醫療專業人員。遇到壓力時，不必等到完全撐不住才開口。</p></section>
+        </div>
+        <details class="tip"><summary>閱讀衛教資訊時，可以先問自己的三個問題</summary><div class="inside"><p>這個內容是在提供一般知識，還是在替我下診斷？它是否交代限制與求助時機？如果內容讓我更害怕、更確定自己「一定有某種疾病」，我是否需要先回到可靠來源，或與專業人員確認？</p></div></details>
+      </section>
+
+      <section class="source-box" aria-labelledby="sources-title">
+        <h2 id="sources-title">資料來源與閱讀原則</h2>
+        <p>本網頁的整體衛教方向是參考醫學文獻、公共衛生資訊與心理健康官方資料之後，轉譯為一般讀者可理解的方式。自我照護的原則可以作為健康促進的參考，但是不能取代醫療系統或專業照護。</p>
+        <ul>
+          <li><a href="https://www.who.int/news-room/questions-and-answers/item/self-care-for-health-and-well-being">世界衛生組織：Self-care for health and well-being</a></li>
+          <li><a href="https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response">世界衛生組織：Mental health</a></li>
+          <li><a href="https://dep.mohw.gov.tw/DOMHAOH/fp-4906-54077-107.html">衛生福利部心理健康司：1925安心專線</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="disclaimer">
+        <h2 id="disclaimer">提醒</h2>
+        <div class="notice">
+          <p><strong>醫療資訊聲明：</strong>本網頁為健康衛教與一般資訊整理，不作為個別診斷、治療或醫療建議。若你有持續或明顯的情緒、睡眠、行為或功能困擾，建議尋求醫療專業人員評估。</p>
+          <p><strong>需要立即協助時：</strong>若你或身邊的人有立即自傷、傷人風險，請優先聯絡所在地緊急服務或就近急診。衛生福利部 1925 安心專線提供 24 小時的心理支持。</p>
+        </div>
+      </section>
+    </main>
+    <aside class="desktop-nav" aria-label="桌面版段落導覽">
+      <strong>網頁導覽</strong>
+      <a href="#topics">主題快速入口</a><a href="#articles">目前可閱讀的文章</a>
+      <a href="#anxiety" data-topic="anxiety">焦慮與壓力</a>
+<a href="#older-adult" data-topic="older-adult">老年心理</a>
+<a href="#digital" data-topic="digital">數位心理健康</a>
+<a href="#general" data-topic="general">一般衛教</a>
+<a href="#sleep" data-topic="sleep">睡眠健康</a>
+<a href="#mood" data-topic="mood">憂鬱與情緒</a>
+<a href="#family" data-topic="family">家庭與親子</a>
+<a href="#relationship" data-topic="relationship">人際與親密關係</a>
+<a href="#adolescent" data-topic="adolescent">青少年心理</a>
+<a href="#workplace" data-topic="workplace">職場心理</a>
+<a href="#addiction" data-topic="addiction">成癮問題</a>
+<a href="#treatment" data-topic="treatment">精神疾病與治療</a>
+      <a href="#start-together">三個可以一起開始的做法</a><a href="#sources-title">資料來源</a><a href="#disclaimer">提醒</a>
+    </aside>
+  </div>
+  <footer>欣寧身心診所 · 身心小語</footer>
+  <script>
+    // Only the desktop table of contents receives a current-section marker.
+    if ('IntersectionObserver' in window) {
+      const links = [...document.querySelectorAll('.desktop-nav a')];
+      const targets = links.map(a => document.getElementById(a.hash.slice(1))).filter(Boolean);
+      let active = null;
+      const update = () => {
+        const current = targets.filter(el => el.getBoundingClientRect().top <= 130)
+          .sort((a,b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top).at(-1) || targets[0];
+        if (current === active) return;
+        active = current;
+        links.forEach(a => {
+          const selected = a.hash === '#' + current.id;
+          a.classList.toggle('is-active', selected);
+          if (selected) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        });
+      };
+      const observer = new IntersectionObserver(update, {rootMargin:'-100px 0px -70% 0px'});
+      targets.forEach(el => observer.observe(el));
+      window.addEventListener('scroll', update, {passive:true});
+      update();
+    }
+  </script>
+</body>
+</html>
