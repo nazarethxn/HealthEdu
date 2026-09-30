@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成癮不是意志力不夠：腦功能改變時，我們更需要治療與支持</title>
+  <meta name="description" content="成癮不是單純意志薄弱。了解獎賞、壓力與自我控制等腦功能如何改變，以及為什麼治療、環境調整與支持能讓停止使用變得更可行。">
+  <style>
+    :root {
+      --bg: #f7f4ec;
+      --paper: #fffdf8;
+      --ink: #273432;
+      --muted: #60716d;
+      --teal: #236b69;
+      --teal-dark: #184f4e;
+      --teal-soft: #e7f2ef;
+      --blue-soft: #eaf3f8;
+      --yellow-soft: #fff4d9;
+      --orange-soft: #fff0df;
+      --border: #d8e1dd;
+      --shadow: 0 10px 28px rgba(35, 71, 66, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 18px;
+      line-height: 1.82;
+      overflow-wrap: anywhere;
+    }
+    a { color: var(--teal-dark); text-underline-offset: .18em; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #7a58c4; outline-offset: 4px; border-radius: 4px; }
+    .skip-link {
+      position: absolute; left: 12px; top: -80px; z-index: 1000;
+      background: #fff; color: #111; padding: 10px 14px; border-radius: 8px; box-shadow: var(--shadow);
+    }
+    .skip-link:focus { top: 12px; }
+    .page { width: min(100%, 960px); margin: 0 auto; padding: 24px 34px 64px; }
+    .hero {
+      width: 100%; max-width: 100%; height: auto; display: block;
+      border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(35,107,105,.12);
+    }
+    header { margin-bottom: 30px; }
+    h1 {
+      margin: 28px 0 10px; color: var(--teal-dark); font-size: clamp(2rem, 4vw, 2.45rem);
+      line-height: 1.28; letter-spacing: .01em;
+    }
+    .subtitle { margin: 0 0 12px; font-size: 1.08rem; color: #445c58; }
+    .couplet { margin: 0; color: var(--teal); font-weight: 700; letter-spacing: .09em; font-size: 1rem; }
+    .summary-box {
+      margin: 30px 0 20px; padding: 22px 24px; background: var(--teal-soft); border: 1px solid #c8ded8;
+      border-radius: 16px; box-shadow: 0 7px 20px rgba(35,107,105,.06);
+    }
+    .summary-box h2 { margin: 0 0 12px; font-size: 1.22rem; color: var(--teal-dark); }
+    .summary-box ul { margin: 0; padding-left: 1.25em; }
+    .summary-box li { margin: .6em 0; }
+    .safety-note {
+      margin: 18px 0 0; padding: 14px 16px; background: var(--orange-soft); border-left: 5px solid #d58b49; border-radius: 10px;
+      font-size: .96rem;
+    }
+    .mobile-nav { margin: 18px 0 30px; }
+    details {
+      border: 1px solid var(--border); border-radius: 14px; background: var(--paper); overflow: hidden;
+    }
+    summary {
+      cursor: pointer; font-weight: 700; color: var(--teal-dark); padding: 13px 16px; min-height: 48px;
+      display: flex; align-items: center;
+    }
+    details[open] summary { border-bottom: 1px solid var(--border); background: #f7fbf9; }
+    .details-body { padding: 16px 18px 18px; font-size: .96rem; }
+    .details-body ul { margin: .3em 0; padding-left: 1.2em; }
+    article { max-width: 860px; margin: 0 auto; }
+    section { scroll-margin-top: 20px; margin: 0 0 38px; }
+    h2 { margin: 0 0 13px; color: var(--teal-dark); font-size: 1.48rem; line-height: 1.4; }
+    h3 { margin: 0 0 8px; color: var(--teal-dark); font-size: 1.08rem; }
+    p { margin: 0 0 1.05em; }
+    .inline-note {
+      margin: 17px 0 4px; padding: 14px 16px; background: var(--blue-soft); border-radius: 12px; border: 1px solid #cedfe7;
+    }
+    .cite { white-space: nowrap; font-size: .86em; font-weight: 700; text-decoration: none; }
+    .research-details { margin-top: 18px; }
+    .core-message {
+      margin: 42px 0; padding: 22px 24px; background: var(--yellow-soft); border: 1px solid #e8d8ac;
+      border-radius: 16px; box-shadow: var(--shadow); font-size: 1.08rem;
+    }
+    .core-message strong { color: #71531c; }
+    .actions {
+      display: grid; gap: 16px; margin-top: 18px;
+    }
+    .action-item { padding: 18px 20px; border-radius: 14px; background: var(--paper); border: 1px solid var(--border); }
+    .help-box {
+      margin: 42px 0 24px; padding: 20px 22px; background: var(--orange-soft); border: 1px solid #edd0ae; border-radius: 16px;
+    }
+    .help-box strong { color: #7d5128; }
+    .disclaimer { padding: 18px 20px; background: #f1f3f2; border-radius: 14px; color: #43524f; font-size: .96rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin: 26px 0; }
+    .tag { background: #edf3f1; color: #315a55; border: 1px solid #d5e1de; border-radius: 999px; padding: 4px 11px; font-size: .9rem; }
+    .references {
+      margin-top: 34px; padding: 20px 22px; background: #f0f2ef; border: 1px solid #d9dfdc; border-radius: 14px; font-size: 16px; line-height: 1.65;
+    }
+    .references ol { margin: 0; padding-left: 1.35em; }
+    .references li { margin: 0 0 12px; }
+    .more-link { margin-top: 20px; font-size: 16px; }
+    footer { margin-top: 24px; }
+    .desktop-nav { display: none; }
+
+    @media (min-width: 1360px) {
+      .desktop-nav {
+        display: block; position: fixed; left: calc(50% + 455px); top: 96px; width: 200px; max-height: calc(100vh - 130px);
+        overflow-y: auto; padding: 14px 14px 16px; background: rgba(255,253,248,.97); border: 1px solid var(--border);
+        border-radius: 14px; box-shadow: var(--shadow); z-index: 20;
+      }
+      .desktop-nav strong { display: block; color: var(--teal-dark); margin-bottom: 7px; font-size: .9rem; }
+      .desktop-nav a { display: block; padding: 7px 5px; text-decoration: none; font-size: .88rem; line-height: 1.35; border-radius: 6px; }
+      .desktop-nav a:hover, .desktop-nav a:focus-visible { background: var(--teal-soft); }
+      .mobile-nav { display: none; }
+    }
+    @media (max-width: 767px) {
+      body { font-size: 18px; line-height: 1.78; }
+      .page { padding: 14px 20px 46px; }
+      .hero { border-radius: 14px; }
+      h1 { margin-top: 20px; font-size: 1.8rem; line-height: 1.34; }
+      .subtitle { font-size: 1rem; }
+      .couplet { line-height: 1.7; letter-spacing: .05em; }
+      .couplet span { display: block; }
+      .summary-box { margin-top: 24px; padding: 18px 18px; }
+      .summary-box ul { padding-left: 1.15em; }
+      section { margin-bottom: 32px; }
+      h2 { font-size: 1.34rem; }
+      .core-message, .help-box { padding: 18px; }
+      .references { padding: 18px; }
+    }
+    @media (max-width: 360px) {
+      .page { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 1.66rem; }
+      .summary-box, .core-message, .help-box, .references { padding-left: 15px; padding-right: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至文章內容</a>
+  <div class="page">
+    <main id="main-content">
+      <article>
+        <header>
+          <img class="hero" src="addiction-brain-willpower.webp" alt="一名成人在明亮諮詢室與醫療人員平等討論成癮與治療支持" width="1200" height="600">
+          <h1>成癮不是意志力不夠：腦功能改變時，我們更需要治療與支持</h1>
+          <p class="subtitle">理解「想停卻很難停」背後的腦功能與生活因素，能讓我們把責備換成更有效的治療與支持。</p>
+          <p class="couplet" aria-label="成癮不只靠意志，找回選擇有支持"><span>成癮不只靠意志</span><span>找回選擇有支持</span></p>
+
+          <section class="summary-box" aria-labelledby="summary-title">
+            <h2 id="summary-title">先掌握三個重點</h2>
+            <ul>
+              <li><strong>成癮不是單純意志薄弱。</strong>反覆使用物質會和獎賞、壓力、記憶及自我控制等腦功能改變有關，讓「知道該停」和「當下做得到」之間出現落差。</li>
+              <li><strong>腦功能改變不等於大腦永久壞掉。</strong>不同人的影響差異很大，縱向研究也觀察到停止或減少使用後，部分腦功能與結構可能逐步恢復。</li>
+              <li><strong>意志力仍有角色，但不必獨自扛。</strong>治療可以加入環境調整、心理治療、社會支持，以及部分物質使用障礙適用的藥物，讓改變更可行。</li>
+            </ul>
+            <p class="safety-note"><strong>安全提醒：</strong>若正在大量或長期使用酒精、鎮靜安眠類藥物或其他可能出現嚴重戒斷的物質，不要自行突然停用，請先由醫療人員評估。</p>
+          </section>
+
+          <details class="mobile-nav">
+            <summary>展開段落導覽</summary>
+            <div class="details-body">
+              <nav aria-label="行動版段落導覽">
+                <ul>
+                  <li><a href="#not-just-control">不只是控制不住</a></li>
+                  <li><a href="#brain-change">腦功能改變</a></li>
+                  <li><a href="#why-craving">為何知道有害仍想用</a></li>
+                  <li><a href="#willpower">意志力的角色</a></li>
+                  <li><a href="#treatment">治療能做什麼</a></li>
+                  <li><a href="#support">如何陪伴</a></li>
+                  <li><a href="#actions">三個具體做法</a></li>
+                </ul>
+              </nav>
+            </div>
+          </details>
+        </header>
+
+        <section id="not-just-control">
+          <h2>成癮真的只是「控制不住自己」嗎？</h2>
+          <p>成癮並不是單純的意志薄弱。以物質使用障礙來說，反覆使用酒精、尼古丁、鴉片類藥物或其他成癮物質，會和獎賞、壓力、動機、記憶及自我控制等腦網路的長期改變有關；這些改變可能讓某些線索變得特別吸引人，也讓停止使用比旁人想像得更困難。<a class="cite" href="#ref1" aria-label="參考資料一">[1]</a></p>
+          <p>但把成癮理解成「腦功能出了問題」，不等於說一個人完全沒有選擇，也不代表所有行為都由大腦決定。基因、成長經驗、壓力、可取得的物質、家庭與社會環境，都會和腦功能互相影響。因此，比較準確的說法是：成癮是一個生物、心理與社會因素共同作用的健康問題。<a class="cite" href="#ref1">[1]</a></p>
+          <p class="inline-note"><strong>身體依賴或耐受性不等於成癮。</strong>某些處方藥依醫囑長期使用也可能出現身體依賴；是否構成成癮，還要看失控使用、強烈渴求、即使造成傷害仍持續使用等整體情況。<a class="cite" href="#ref1">[1]</a></p>
+        </section>
+
+        <section id="brain-change">
+          <h2>腦功能改變，代表大腦「壞掉」了嗎？</h2>
+          <p>不一定。研究常看到成癮者在獎賞處理、衝動控制、決策與壓力反應上出現群體層次的差異，但這些結果不能拿來替單一個人做診斷，也不能把大腦想成永久受損的機器。不同物質、使用時間、年齡、共病與生活環境，都可能讓結果不同。<a class="cite" href="#ref1">[1]</a><a class="cite" href="#ref2">[2]</a></p>
+          <p>更重要的是，大腦具有可塑性。2022 年的縱向神經影像系統性回顧納入 45 項研究，多數研究在停止或顯著減少物質使用後，觀察到至少部分結構、功能或神經化學恢復；不過恢復速度與程度並不一致，研究也仍有限。<a class="cite" href="#ref3">[3]</a> 這表示「改變」不等於「沒有回復空間」。</p>
+        </section>
+
+        <section id="why-craving">
+          <h2>為什麼明明知道有害，還是會一直想用？</h2>
+          <p>在成癮循環中，使用物質可能先帶來強烈獎賞或暫時減輕不舒服；久了之後，壓力、戒斷不適、情緒低落，或和過去使用經驗連結的場所、人物與情境，都可能觸發渴求。壓力研究也顯示，慢性或反覆壓力會影響適應性的壓力反應，並和渴求、復發風險及持續使用有關。<a class="cite" href="#ref4">[4]</a></p>
+          <p>所以「知道後果」和「當下做得到」不是同一件事。當強烈渴求、戒斷、睡眠不足或高壓情境出現時，自我控制可能變得更吃力。這也是為什麼只對一個人說「忍住就好」常常不夠；我們還需要處理觸發情境、壓力、可取得性與支持系統。</p>
+        </section>
+
+        <section id="willpower">
+          <h2>意志力還有沒有用？</h2>
+          <p>有，但不適合被當成唯一的治療工具。意志力可以幫助我們做出第一次求助、避開高風險情境、按計畫回診，或在復發後重新回到治療；只是這些行動若缺少環境調整、專業治療與持續支持，負擔往往會很大。把治療想成「替意志力增加外部支架」會更貼近實際。</p>
+          <p>另外，神經認知研究雖常觀察到執行控制與獎賞處理差異，但 2023 年的縱向研究系統性回顧指出，能否用這些認知指標準確預測之後的成癮結果，目前證據仍不足。<a class="cite" href="#ref2">[2]</a> 我們因此不宜用一次測驗、一次腦影像，或「自制力強不強」替一個人下定論。</p>
+        </section>
+
+        <section id="treatment">
+          <h2>治療能做什麼？</h2>
+          <p>治療目標通常不只是「把物質拿掉」，而是一起降低渴求與戒斷困擾、處理壓力與共病、重建生活節奏，並減少再次陷入高風險情境的機會。行為治療適用於多種物質使用障礙；部分酒精、尼古丁與鴉片類物質使用障礙也有實證支持的藥物治療可選擇。<a class="cite" href="#ref1">[1]</a><a class="cite" href="#ref5">[5]</a></p>
+          <p>復發也不等於治療失敗。對某些人而言，成癮的過程可能反覆，治療計畫需要依實際情況調整。若正在大量或長期使用酒精、鎮靜安眠類藥物或其他可能產生嚴重戒斷的物質，不要自行突然停用，應由醫療人員評估安全的減量或戒斷方式。</p>
+        </section>
+
+        <section id="support">
+          <h2>我們可以怎麼陪伴正在成癮的人？</h2>
+          <p>我們可以把焦點從責備移到具體行為，例如一起討論「什麼時候最容易想用」「最近哪一段時間最難熬」「願不願意找一個可以一起討論治療的人」。這不代表接受傷害、借錢或危險行為；關心和界線可以同時存在。</p>
+          <p>若對方暫時還沒有準備好完全停止，也可以先從降低風險、接受評估、建立固定聯絡與找出觸發情境開始。真正有幫助的支持，不是替對方做所有決定，而是讓可行的下一步變得更容易，同時保留安全界線與專業協助。</p>
+
+          <details class="research-details">
+            <summary>想多了解研究怎麼看「腦功能改變」</summary>
+            <div class="details-body">
+              <p>「成癮影響大腦」常被誤解成「大腦已經壞掉」或「人完全沒有責任」。目前較合理的理解是，成癮涉及可觀察到的腦網路與認知功能差異，但這些差異和環境、壓力、學習歷程彼此作用，而且並非每個人都相同。<a class="cite" href="#ref1">[1]</a><a class="cite" href="#ref2">[2]</a></p>
+              <p>縱向神經影像研究也顯示，停止或減少使用後可能出現部分恢復，不過不同物質與個人之間差異很大。<a class="cite" href="#ref3">[3]</a> 這些研究幫助我們理解機轉，但目前仍不能用單一腦影像替個人判斷「會不會成癮」或「一定會不會復發」。</p>
+            </div>
+          </details>
+        </section>
+
+        <div class="core-message" role="note">
+          <strong>最重要的一句話：</strong>成癮會讓「想停」和「做得到」之間的距離變大；治療與支持的目的，是一起把這段距離縮短。
+        </div>
+
+        <section id="actions">
+          <h2>三個可以一起開始的具體做法</h2>
+          <div class="actions">
+            <div class="action-item">
+              <h3>把「靠忍耐」改成「找支架」</h3>
+              <p>我們可以一起先找出一個最容易失控的時刻，再替那個時刻加上一個外部支架，例如不經過常買酒或物質的路線、把可取得的物質移開，或先約好一位能聯絡的人。一次只改一個環節，也算開始。</p>
+            </div>
+            <div class="action-item">
+              <h3>記下三個常見觸發點</h3>
+              <p>我們不妨先觀察「什麼時間、什麼情緒、和誰在一起」時最容易出現渴求。若記錄太麻煩，只要在手機備忘錄留下三個關鍵字，也能讓下一次和醫療人員討論時更具體。</p>
+            </div>
+            <div class="action-item">
+              <h3>把求助門檻降到「先評估」</h3>
+              <p>我們可以一起從一次評估開始，不必先承諾「從此永遠不用」。醫療人員可以先了解使用量、戒斷風險、身心狀況與可接受的目標，再討論適合的治療方式與步調。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="help-box" id="help">
+          <h2>什麼時候需要尋求協助？</h2>
+          <p>如果使用物質已反覆影響工作、學業、關係、財務或身體健康，出現明顯戒斷、無法控制用量，或多次想停卻做不到，我們可以把這些狀況帶到身心科、精神科或成癮相關醫療服務做完整評估。</p>
+          <p><strong>若出現意識不清、呼吸明顯變慢、抽搐、嚴重混亂，或有立即自傷危險，請立即尋求醫療協助；在台灣可撥 119 或直接前往急診。</strong></p>
+        </section>
+
+        <div class="disclaimer" role="note">
+          本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。
+        </div>
+
+        <div class="tags" aria-label="延伸標籤">
+          <span class="tag">#成癮</span>
+          <span class="tag">#物質使用障礙</span>
+          <span class="tag">#腦神經可塑性</span>
+          <span class="tag">#戒斷</span>
+          <span class="tag">#渴求</span>
+          <span class="tag">#復發預防</span>
+          <span class="tag">#成癮治療</span>
+        </div>
+
+        <section class="references" aria-labelledby="references-title">
+          <h2 id="references-title">參考資料</h2>
+          <ol>
+            <li id="ref1">Volkow ND, Blanco C. Substance use disorders: a comprehensive update of classification, epidemiology, neurobiology, clinical aspects, treatment and prevention. <em>World Psychiatry</em>. 2023;22(2):203-229. doi: <a href="https://doi.org/10.1002/wps.21073" target="_blank" rel="noopener noreferrer">10.1002/wps.21073</a>.</li>
+            <li id="ref2">Christensen E, Brydevall M, Albertella L, Samarawickrama SK, Yücel M, Lee RSC. Neurocognitive predictors of addiction-related outcomes: A systematic review of longitudinal studies. <em>Neurosci Biobehav Rev</em>. 2023;152:105295. doi: <a href="https://doi.org/10.1016/j.neubiorev.2023.105295" target="_blank" rel="noopener noreferrer">10.1016/j.neubiorev.2023.105295</a>.</li>
+            <li id="ref3">Parvaz MA, Rabin RA, Adams F, Goldstein RZ. Structural and functional brain recovery in individuals with substance use disorders during abstinence: A review of longitudinal neuroimaging studies. <em>Drug Alcohol Depend</em>. 2022;232:109319. doi: <a href="https://doi.org/10.1016/j.drugalcdep.2022.109319" target="_blank" rel="noopener noreferrer">10.1016/j.drugalcdep.2022.109319</a>.</li>
+            <li id="ref4">Sinha R. Stress and substance use disorders: risk, relapse, and treatment outcomes. <em>J Clin Invest</em>. 2024;134(16):e172883. doi: <a href="https://doi.org/10.1172/JCI172883" target="_blank" rel="noopener noreferrer">10.1172/JCI172883</a>.</li>
+            <li id="ref5">Mateu-Mollá J, Pérez-Gálvez B, Villanueva-Blasco VJ. Pharmacological treatment for substance use disorder: A systematic review. <em>Addict Behav</em>. 2025;163:108242. doi: <a href="https://doi.org/10.1016/j.addbeh.2024.108242" target="_blank" rel="noopener noreferrer">10.1016/j.addbeh.2024.108242</a>.</li>
+          </ol>
+          <p class="more-link">延伸衛教資料：<a href="https://nazareth.elaiis.com/#edu-articles" target="_blank" rel="noopener noreferrer">瀏覽更多健康衛教文章</a></p>
+        </section>
+      </article>
+    </main>
+
+    <nav class="desktop-nav" aria-label="桌面版段落導覽">
+      <strong>本頁導覽</strong>
+      <a href="#not-just-control">不只是控制不住</a>
+      <a href="#brain-change">腦功能改變</a>
+      <a href="#why-craving">為何知道有害仍想用</a>
+      <a href="#willpower">意志力的角色</a>
+      <a href="#treatment">治療能做什麼</a>
+      <a href="#support">如何陪伴</a>
+      <a href="#actions">三個具體做法</a>
+      <a href="#help">何時需要求助</a>
+      <a href="#references-title">參考資料</a>
+    </nav>
+
+    <footer aria-hidden="true"></footer>
+  </div>
+</body>
+</html>

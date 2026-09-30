@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工作是生活的一部分：別讓職場把所有生活都占滿</title>
+  <meta name="description" content="工作可以帶來收入、成就與連結，但不必吞掉睡眠、關係、休息與自我。一起認識工作生活界線、下班恢復與可實行的調整方法。">
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --surface: #fffdf8;
+      --text: #253233;
+      --muted: #5f6c6d;
+      --heading: #236a68;
+      --heading-dark: #174e4c;
+      --line: #d8e2dd;
+      --soft-green: #e9f3ee;
+      --soft-blue: #eaf3f5;
+      --soft-yellow: #fff4d9;
+      --soft-orange: #fff0df;
+      --focus: #8a4dc2;
+      --shadow: 0 8px 28px rgba(37, 50, 51, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 18px;
+      line-height: 1.82;
+      overflow-wrap: anywhere;
+    }
+    a { color: #1e625f; text-underline-offset: 0.18em; }
+    a:hover { color: #123f3d; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 5px;
+    }
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 1000;
+      background: #fff;
+      color: #111;
+      padding: 10px 14px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .skip-link:focus { top: 12px; }
+
+    .page {
+      width: min(100%, 920px);
+      margin: 0 auto;
+      padding: 20px 24px 64px;
+    }
+    .hero {
+      margin: 0 0 24px;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #efe9dc;
+    }
+    .hero img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+    header.article-header { margin-bottom: 26px; }
+    h1 {
+      margin: 0;
+      color: var(--heading-dark);
+      font-size: clamp(2rem, 5vw, 2.45rem);
+      line-height: 1.28;
+      letter-spacing: 0.01em;
+    }
+    .subtitle {
+      margin: 14px 0 0;
+      color: #425859;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    .couplet {
+      margin: 13px 0 0;
+      color: #7a5b2f;
+      font-size: 1rem;
+      line-height: 1.65;
+      letter-spacing: 0.08em;
+    }
+    .couplet span { white-space: nowrap; }
+    .couplet .sep { color: #b99e75; margin: 0 0.45em; }
+
+    .summary-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      margin: 24px 0 16px;
+    }
+    .summary-box h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: var(--heading);
+    }
+    .summary-box ol {
+      margin: 0;
+      padding-left: 1.35em;
+    }
+    .summary-box li { margin: 8px 0; padding-left: 0.2em; }
+
+    .mobile-nav {
+      margin: 16px 0 28px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fffdf9;
+      overflow: hidden;
+    }
+    .mobile-nav summary,
+    details.study-note summary {
+      cursor: pointer;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      color: var(--heading-dark);
+      padding: 12px 16px;
+    }
+    .mobile-nav ul {
+      margin: 0;
+      padding: 4px 18px 16px 38px;
+    }
+    .mobile-nav li { margin: 5px 0; }
+
+    main article section { scroll-margin-top: 20px; }
+    h2 {
+      color: var(--heading-dark);
+      font-size: 1.52rem;
+      line-height: 1.42;
+      margin: 42px 0 14px;
+    }
+    h3 {
+      color: var(--heading);
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin: 22px 0 8px;
+    }
+    p { margin: 0 0 16px; }
+    strong { color: #174e4c; }
+    sup a {
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0 2px;
+    }
+
+    .inline-note {
+      margin: 22px 0;
+      padding: 16px 18px;
+      background: var(--soft-yellow);
+      border-left: 5px solid #d7a943;
+      border-radius: 10px;
+    }
+    details.study-note {
+      margin: 22px 0;
+      border: 1px solid #cfded9;
+      border-radius: 14px;
+      background: #fbfefd;
+      overflow: hidden;
+    }
+    details.study-note[open] summary { border-bottom: 1px solid #dce7e2; }
+    .study-note .details-body {
+      padding: 16px 18px 18px;
+      font-size: 0.96rem;
+      color: #3e5152;
+    }
+
+    .core-message {
+      margin: 38px 0 34px;
+      background: linear-gradient(135deg, var(--soft-blue), var(--soft-green));
+      border: 1px solid #c6ddd9;
+      border-radius: 20px;
+      padding: 23px 24px;
+      box-shadow: var(--shadow);
+    }
+    .core-message p {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.68;
+      color: #1d5553;
+      font-weight: 750;
+    }
+
+    .actions {
+      margin-top: 16px;
+    }
+    .action {
+      padding: 2px 0 16px;
+      border-bottom: 1px solid #dde5e1;
+    }
+    .action:last-child { border-bottom: 0; }
+    .action h3 { margin-bottom: 6px; }
+
+    .help-box {
+      margin-top: 34px;
+      background: var(--soft-orange);
+      border: 1px solid #efd5b8;
+      border-radius: 16px;
+      padding: 20px 22px;
+    }
+    .help-box h2 { margin-top: 0; color: #7c4e21; }
+
+    .reminder {
+      margin: 28px 0 22px;
+      padding: 18px 20px;
+      background: #f2f5f4;
+      border-radius: 14px;
+      border: 1px solid #d8e1de;
+      font-size: 0.96rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 24px 0 34px;
+    }
+    .tag {
+      display: inline-block;
+      background: #e7f0ed;
+      color: #275f5b;
+      border-radius: 999px;
+      padding: 5px 11px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .references {
+      margin-top: 30px;
+      padding: 22px;
+      background: #f1f3f1;
+      border: 1px solid #d7dedb;
+      border-radius: 16px;
+      font-size: 16px;
+      line-height: 1.72;
+    }
+    .references h2 { margin: 0 0 10px; font-size: 1.28rem; }
+    .references ol { margin: 0; padding-left: 1.35em; }
+    .references li { margin: 11px 0; }
+    .references a { word-break: break-word; }
+    .more-link {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #d7dedb;
+    }
+
+    .side-nav { display: none; }
+
+    @media (max-width: 640px) {
+      body { font-size: 18px; line-height: 1.78; }
+      .page { padding: 12px 20px 48px; }
+      .hero { margin-bottom: 18px; border-radius: 15px; }
+      h1 { font-size: clamp(1.78rem, 9vw, 2rem); }
+      .subtitle { font-size: 1rem; margin-top: 10px; }
+      .couplet { margin-top: 10px; }
+      .couplet span { display: block; }
+      .couplet .sep { display: none; }
+      .summary-box { padding: 18px 18px; margin-top: 20px; }
+      .summary-box li { margin: 10px 0; }
+      h2 { font-size: 1.38rem; margin-top: 36px; }
+      .core-message { padding: 20px; }
+      .core-message p { font-size: 1.12rem; }
+      .references { padding: 18px; }
+    }
+
+    @media (max-width: 360px) {
+      .page { padding-left: 18px; padding-right: 18px; }
+      h1 { font-size: 1.72rem; }
+    }
+
+    @media (min-width: 1360px) {
+      .mobile-nav { display: none; }
+      .side-nav {
+        display: block;
+        position: fixed;
+        top: 86px;
+        right: 24px;
+        width: 224px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding: 16px;
+        background: rgba(255, 253, 248, 0.97);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        z-index: 20;
+      }
+      .side-nav strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--heading-dark);
+      }
+      .side-nav a {
+        display: block;
+        min-height: 42px;
+        padding: 7px 8px;
+        margin: 2px 0;
+        border-radius: 8px;
+        text-decoration: none;
+        line-height: 1.45;
+      }
+      .side-nav a:hover { background: var(--soft-green); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#article-content">跳至文章內容</a>
+
+  <nav class="side-nav" aria-label="文章段落導覽">
+    <strong>文章導覽</strong>
+    <a href="#work-part-life">工作只是生活一部分</a>
+    <a href="#no-off-switch">一直沒有下班</a>
+    <a href="#busy-vs-imbalance">忙一陣與長期失衡</a>
+    <a href="#boundaries">界線不是不負責</a>
+    <a href="#realistic-pressure">現實壓力下怎麼做</a>
+    <a href="#actions">三個可以開始的做法</a>
+    <a href="#help">何時尋求協助</a>
+    <a href="#references">參考資料</a>
+  </nav>
+
+  <div class="page">
+    <header class="article-header">
+      <figure class="hero">
+        <img src="work-is-part-of-life.webp" width="1200" height="600" alt="下班後闔上筆電、回到家中與重要的人共享安靜時光的插畫">
+      </figure>
+      <h1>工作是生活的一部分：別讓職場把所有生活都占滿</h1>
+      <p class="subtitle">我們可以認真工作，也可以保留睡眠、關係、休息與真正重要的事；界線不是偷懶，而是讓生活與工作都能長久。</p>
+      <p class="couplet" aria-label="工作盡責也留岸，生活有光心自安"><span>工作盡責也留岸</span><span class="sep" aria-hidden="true">・</span><span>生活有光心自安</span></p>
+
+      <section class="summary-box" aria-labelledby="summary-title">
+        <h2 id="summary-title">先掌握三個重點</h2>
+        <ol>
+          <li><strong>工作有價值，但不是全部。</strong>收入、成就與人際連結都可能來自工作；睡眠、關係、身體、興趣與休息，同樣構成我們的生活。</li>
+          <li><strong>問題不只是「忙」，而是長期沒有恢復。</strong>工作反覆侵入私人時間、總是待命或難停下，和耗竭及心理困擾有關，但每個人的處境不同。</li>
+          <li><strong>界線可以從小地方開始。</strong>保留一小段真正下班的時間、安排可做到的休息，必要時討論工作量與優先順序，比把所有壓力都留給自己硬撐更實際。</li>
+        </ol>
+      </section>
+
+      <details class="mobile-nav">
+        <summary>展開文章段落導覽</summary>
+        <nav aria-label="行動版文章段落導覽">
+          <ul>
+            <li><a href="#work-part-life">工作只是生活一部分</a></li>
+            <li><a href="#no-off-switch">一直沒有下班</a></li>
+            <li><a href="#busy-vs-imbalance">忙一陣與長期失衡</a></li>
+            <li><a href="#boundaries">界線不是不負責</a></li>
+            <li><a href="#realistic-pressure">現實壓力下怎麼做</a></li>
+            <li><a href="#actions">三個可以開始的做法</a></li>
+            <li><a href="#help">何時尋求協助</a></li>
+            <li><a href="#references">參考資料</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main id="article-content">
+      <article>
+        <section id="work-part-life">
+          <h2>工作很重要，但它不需要成為全部的生活</h2>
+          <p>工作可以帶來收入、日常結構、成就感與人際連結，對許多人而言，也是生活中很有意義的一部分。世界衛生組織同樣指出，良好的工作可能保護心理福祉；問題通常不是「有工作」，而是工作條件是否安全、可持續，以及我們是否還保有其他生活角色與恢復空間。<sup><a href="#ref4" aria-label="參考資料 4">[4]</a></sup></p>
+          <p>因此，「不要為工作犧牲所有生活」並不是要我們對工作漫不經心，而是提醒：<strong>一個人的價值不需要只靠績效、職稱或隨時可被找到來證明。</strong>能吃飯、睡覺、陪伴重要的人、照顧身體、發呆或做喜歡的事，也都是生活本身，而不是完成工作後才有資格得到的獎勵。</p>
+        </section>
+
+        <section id="no-off-switch">
+          <h2>真正容易耗損的，是「一直沒有下班」</h2>
+          <p>有些工作下班後仍會留在腦中：訊息要不要回、明天的會議怎麼辦、還有哪件事沒做完。研究把這種下班後能不能暫時離開工作思緒的能力稱為「心理抽離」。系統性回顧顯示，工作要求高、數位溝通持續侵入私人時間，以及工作與生活界線模糊，都可能讓心理抽離更困難。<sup><a href="#ref2" aria-label="參考資料 2">[2]</a></sup></p>
+          <p>2026 年一篇系統性回顧與統合分析也發現，工作要求和家庭或私人角色互相衝突，和之後較多的憂鬱症狀、耗竭與一般心理困擾有關。這些研究主要是觀察性資料，所以不能說「只要工作侵入生活就一定造成疾病」；但它提醒我們，長期無法切換角色不是小事。<sup><a href="#ref1" aria-label="參考資料 1">[1]</a></sup></p>
+
+          <details class="study-note">
+            <summary>想多了解研究怎麼看「工作—生活衝突」</summary>
+            <div class="details-body">
+              <p>Liu 等人在 2026 年整合縱向研究後指出，工作干擾家庭與私人生活，和後續的憂鬱症狀、耗竭及心理困擾呈小幅但一致的關聯；家庭干擾工作也有類似方向。研究者同時明確指出，納入研究都屬觀察性研究，仍不能完全建立因果關係，而且存在出版偏差的可能。<sup><a href="#ref1" aria-label="參考資料 1">[1]</a></sup></p>
+              <p>這代表我們可以把「界線」視為值得留意的健康條件，但不需要把任何一次加班、任何一封下班訊息，直接解讀成必然傷害。</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="busy-vs-imbalance">
+          <h2>忙一陣子，和長期失衡，不是同一件事</h2>
+          <p>專案收尾、臨時事件、旺季或某段人生轉折，都可能讓我們短期投入更多時間。真正需要留意的，是忙碌變成沒有盡頭的常態：休息永遠被延後、睡眠持續被壓縮、吃飯和運動都只能「有空再說」，重要關係只剩下交代事情。</p>
+          <p>有終點、能恢復、較能自主安排的忙碌，和長期無法預測、沒有控制感的超載，可能帶來很不一樣的感受。這也是為什麼只看工時常常不夠完整；工作自主性、人力配置、下班後是否能抽離，以及休息品質，都值得一起看。</p>
+          <p>因此，我們不需要用單一工時數字判斷自己是否「太拼」。更有用的是觀察：下班後能不能慢慢恢復、隔天是否還有基本精神、週末是否只是補眠和處理未完工作，以及生活裡還有沒有不以產出為目的的時間。這些訊號比比較誰加班比較久，更貼近實際負荷。</p>
+          <div class="inline-note"><strong>一段時間很忙，不等於失敗；但如果「撐過這一陣」已經說了很多個月，我們就值得重新看一次工作量與生活空間。</strong></div>
+        </section>
+
+        <section id="boundaries">
+          <h2>界線不是不負責，而是讓責任可以持續</h2>
+          <p>休息不是工作的對立面，而是恢復的一部分。關於工作休息的系統性回顧指出，休息的效果會受到頻率、長度、活動內容與個人經驗影響，並沒有一種固定格式適合所有人；但「工作期間與工作之外都需要恢復」是重要方向。<sup><a href="#ref3" aria-label="參考資料 3">[3]</a></sup></p>
+          <p>同樣地，界線也不一定是晚上七點後完全不碰手機。有些職務需要輪值、待命或彈性處理事件，我們可以一起找的是「可預期的規則」：哪些訊息真的需要即時處理、什麼情況可以隔天回、誰負責備援，以及至少保留哪些不被工作佔用的時段。清楚的規則通常比靠意志力忍住不看訊息更可持續。</p>
+        </section>
+
+        <section id="realistic-pressure">
+          <h2>如果工作是現實壓力，我們不必把責任都丟回自己</h2>
+          <p>不是每個人都能自由選擇工時、拒絕加班或換工作。收入需求、人力不足、照顧責任、職務文化與勞動條件，都可能限制我們的選擇。如果環境本身長期超載，只要求個人「更會放鬆」並不公平，也未必有效。</p>
+          <p>WHO 的職場心理健康指引把組織層級的調整列為重要方向，包括改善工作量與排程、增加員工參與決策、提供合理彈性，以及訓練主管辨識並回應職場心理社會風險。<sup><a href="#ref4" aria-label="參考資料 4">[4]</a></sup>所以當問題來自系統，我們可以從工作優先順序、人力、交期與可用資源談起，而不是只問自己「是不是抗壓性不夠」。</p>
+          <p>如果我們很難判斷是暫時疲累，還是已經長期超載，可以用一兩週簡單記下下班時間、睡眠情況、常見身體不適，以及下班後能不能把注意力帶回生活，不必追求精準數字。這份紀錄可以成為討論工作調整或尋求專業協助的線索，而不是拿來責怪自己。</p>
+        </section>
+
+        <aside class="core-message" aria-label="核心訊息">
+          <p>好工作不是占滿生活的工作，而是讓我們有能力把工作做好，也能在下班後回到自己的身體、關係與生活。</p>
+        </aside>
+
+        <section id="actions" class="actions">
+          <h2>三個可以一起開始的具體做法</h2>
+          <div class="action">
+            <h3>一、先建立一個「下班訊號」</h3>
+            <p>我們可以一起從一個很小的動作開始，例如離開座位前寫下明天前三件事、關閉工作視窗，或回家後先有二十分鐘不處理工作訊息。若職務需要待命，可以改成設定固定查看時段，先把「隨時都要回」變成較清楚的規則。</p>
+          </div>
+          <div class="action">
+            <h3>二、把生活也排進行事曆</h3>
+            <p>我們先試著把睡覺、吃飯、陪伴家人、散步或一段自己的時間，和會議一樣先保留下來。若整段時間很難做到，可以從十分鐘、一次晚餐或一個晚上開始；目標不是完美平衡，而是讓生活不再永遠排在最後。</p>
+          </div>
+          <div class="action">
+            <h3>三、用「工作量與優先順序」來協商</h3>
+            <p>我們不妨先把手上的任務列出來，和主管確認：「目前 A、B、C 同時進行，依現有時間很難全部完成，哪一項需要優先？」如果直接談界線很困難，從交期、資源與風險說起，通常比只說「我太累了」更容易形成可執行的調整。</p>
+          </div>
+        </section>
+
+        <section id="help" class="help-box">
+          <h2>什麼時候可以尋求協助？</h2>
+          <p>如果工作壓力已持續影響睡眠、食慾、情緒、注意力、人際關係或日常功能，休假後也很難恢復，或開始出現明顯的無望感、強烈焦慮、頻繁身體不適，可以和合格的醫療或心理專業人員討論。這不等於一定有某種疾病，而是讓我們有機會更完整地評估壓力來源與需要的支持。</p>
+          <p><strong>如果出現自傷、自殺想法，或已經無法確保自己安全，請立即尋求醫療協助或當地緊急救援資源。</strong></p>
+        </section>
+
+        <div class="reminder"><strong>重要提醒：</strong>本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。</div>
+
+        <div class="tags" aria-label="延伸標籤">
+          <span class="tag">#職場壓力</span>
+          <span class="tag">#工作生活界線</span>
+          <span class="tag">#工作家庭衝突</span>
+          <span class="tag">#下班恢復</span>
+          <span class="tag">#心理抽離</span>
+          <span class="tag">#職業健康</span>
+          <span class="tag">#壓力調適</span>
+        </div>
+
+        <footer id="references" class="references">
+          <h2>參考資料</h2>
+          <ol>
+            <li id="ref1">Liu D, Ni Y, Ma TSW, Fan X, Zhan Y, Lam IHL, et al. Work-family conflict and mental health: A systematic review and meta-analysis. <em>PLoS Med.</em> 2026;23(7):e1005162. doi: <a href="https://doi.org/10.1371/journal.pmed.1005162" target="_blank" rel="noopener noreferrer">10.1371/journal.pmed.1005162</a>.</li>
+            <li id="ref2">Agolli A, Holtz BC. Facilitating detachment from work: A systematic review, evidence-based recommendations, and guide for future research. <em>J Occup Health Psychol.</em> 2023;28(3):129-159. doi: <a href="https://doi.org/10.1037/ocp0000353" target="_blank" rel="noopener noreferrer">10.1037/ocp0000353</a>.</li>
+            <li id="ref3">Lyubykh Z, Gulseren D, Premji Z, Wingate TG, Deng C, Bélanger LJ, et al. Role of work breaks in well-being and performance: A systematic review and future research agenda. <em>J Occup Health Psychol.</em> 2022;27(5):470-487. doi: <a href="https://doi.org/10.1037/ocp0000337" target="_blank" rel="noopener noreferrer">10.1037/ocp0000337</a>.</li>
+            <li id="ref4">World Health Organization. <em>WHO guidelines on mental health at work.</em> Geneva: World Health Organization; 2022. ISBN 978-92-4-005305-2. <a href="https://www.who.int/publications/i/item/9789240053052" target="_blank" rel="noopener noreferrer">WHO 出版頁面</a>.</li>
+          </ol>
+          <p class="more-link"><strong>延伸衛教資料：</strong><a href="https://nazareth.elaiis.com/#edu-articles" target="_blank" rel="noopener noreferrer">欣寧身心診所衛教文章</a></p>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

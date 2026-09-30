@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>精神疾病不只一種：為什麼治療方式也不會都一樣？</title>
+  <meta name="description" content="精神疾病包含許多不同診斷與症狀，同一病名也可能有不同需求。從心理治療、藥物到家庭與復健支持，了解為什麼治療需要依疾病、病程與個人情況共同決定。">
+  <style>
+    :root {
+      --bg: #f8f5ee;
+      --paper: #fffdfa;
+      --text: #253337;
+      --muted: #5f6f72;
+      --teal: #176f72;
+      --teal-dark: #0f585b;
+      --line: #d8e4df;
+      --soft-blue: #eef7f6;
+      --soft-green: #eff7ef;
+      --soft-yellow: #fff8df;
+      --soft-orange: #fff0e4;
+      --shadow: 0 10px 28px rgba(44, 75, 73, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: var(--teal-dark); text-underline-offset: 3px; overflow-wrap: anywhere; }
+    a:hover { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 3px solid #d38a35; outline-offset: 3px; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      left: 16px;
+      top: 12px;
+      transform: translateY(-150%);
+      background: #fff;
+      color: #173d3f;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 2px solid var(--teal);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .page {
+      width: min(100% - 36px, 820px);
+      margin: 0 auto;
+      padding: 26px 0 64px;
+    }
+
+    header { margin-bottom: 26px; }
+    .hero {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      background: #edf3ee;
+    }
+    .title-block { padding: 28px 4px 0; }
+    h1 {
+      margin: 0;
+      color: var(--teal-dark);
+      font-size: clamp(2rem, 4vw, 2.45rem);
+      line-height: 1.28;
+      letter-spacing: 0.01em;
+    }
+    .subtitle {
+      margin: 14px 0 0;
+      color: #44595b;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+    .couplet {
+      margin: 12px 0 0;
+      color: #6a746f;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .couplet span { white-space: nowrap; }
+
+    .summary {
+      margin-top: 24px;
+      padding: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .summary h2, .actions h2, .help h2, .references h2 {
+      margin: 0 0 14px;
+      color: var(--teal-dark);
+      font-size: 1.35rem;
+      line-height: 1.4;
+    }
+    .summary ul {
+      margin: 0;
+      padding-left: 1.35em;
+    }
+    .summary li + li { margin-top: 10px; }
+    .safety-note {
+      margin: 16px 0 0;
+      padding: 13px 15px;
+      background: var(--soft-orange);
+      border-left: 4px solid #c97938;
+      border-radius: 8px;
+      color: #533d2c;
+    }
+
+    .mobile-nav {
+      margin: 18px 0 26px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: clip;
+    }
+    .mobile-nav summary,
+    .study-details summary {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--teal-dark);
+      padding: 12px 16px;
+    }
+    .mobile-nav nav { padding: 0 16px 15px; }
+    .mobile-nav nav a {
+      display: block;
+      padding: 7px 0;
+      text-decoration: none;
+      border-bottom: 1px dashed #d7dfdc;
+    }
+    .mobile-nav nav a:last-child { border-bottom: 0; }
+
+    article section { scroll-margin-top: 22px; }
+    article h2 {
+      margin: 40px 0 12px;
+      color: var(--teal-dark);
+      font-size: 1.55rem;
+      line-height: 1.45;
+    }
+    article p { margin: 0 0 16px; }
+    .citation {
+      font-size: 0.9em;
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 2px;
+    }
+
+    .study-details {
+      margin: 22px 0 6px;
+      background: var(--soft-blue);
+      border: 1px solid #cfe3e0;
+      border-radius: 14px;
+      overflow: clip;
+    }
+    .study-details .details-body {
+      padding: 0 16px 16px;
+      font-size: 0.95rem;
+    }
+    .study-details p:last-child { margin-bottom: 0; }
+
+    .core-message {
+      margin: 34px 0 8px;
+      padding: 22px 24px;
+      background: var(--soft-yellow);
+      border: 1px solid #eadca2;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: 1.08rem;
+    }
+    .core-message strong { color: #5a4b1f; }
+
+    .actions {
+      margin-top: 34px;
+      padding-top: 4px;
+    }
+    .action-item {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+    .action-item h3 {
+      margin: 0 0 6px;
+      color: #245f61;
+      font-size: 1.12rem;
+    }
+    .action-item p { margin: 0; }
+
+    .help {
+      margin-top: 28px;
+      padding: 22px 24px;
+      background: var(--soft-green);
+      border: 1px solid #d4e6d4;
+      border-radius: var(--radius);
+    }
+    .help p { margin: 0 0 10px; }
+    .help p:last-child { margin-bottom: 0; }
+    .urgent { font-weight: 700; color: #6e3f25; }
+
+    .notice {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--teal);
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tags li {
+      background: #e8f1ef;
+      color: #315c5c;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+    }
+
+    .references {
+      margin-top: 34px;
+      padding: 22px 24px;
+      background: #f2f1ec;
+      border: 1px solid #deddd7;
+      border-radius: var(--radius);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    .references ol { margin: 0; padding-left: 1.35em; }
+    .references li + li { margin-top: 12px; }
+    .references a { overflow-wrap: anywhere; word-break: break-word; }
+    .more-link { margin-top: 18px; }
+
+    .desktop-nav { display: none; }
+    footer { margin-top: 24px; color: var(--muted); font-size: 0.9rem; }
+
+    @media (min-width: 1360px) {
+      .desktop-nav {
+        display: block;
+        position: fixed;
+        right: max(24px, calc((100vw - 1340px) / 2));
+        top: 96px;
+        width: 220px;
+        max-height: calc(100vh - 130px);
+        overflow-y: auto;
+        padding: 16px;
+        background: rgba(255, 253, 250, 0.96);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(4px);
+      }
+      .desktop-nav strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--teal-dark);
+      }
+      .desktop-nav a {
+        display: block;
+        padding: 7px 0;
+        text-decoration: none;
+        font-size: 0.93rem;
+        line-height: 1.45;
+      }
+      .mobile-nav { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 18px; line-height: 1.78; }
+      .page { width: min(100% - 36px, 820px); padding-top: 18px; }
+      .hero { border-radius: 16px; }
+      .title-block { padding-top: 20px; }
+      h1 { font-size: 1.78rem; line-height: 1.32; }
+      .subtitle { font-size: 1rem; margin-top: 10px; }
+      .couplet { margin-top: 9px; line-height: 1.7; }
+      .couplet span { display: block; }
+      .summary { margin-top: 18px; padding: 19px 18px; }
+      .summary li + li { margin-top: 12px; }
+      article h2 { margin-top: 34px; font-size: 1.4rem; }
+      .core-message, .help, .references { padding: 19px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至文章內容</a>
+
+  <nav class="desktop-nav" aria-label="文章段落導覽">
+    <strong>快速閱讀</strong>
+    <a href="#many-conditions">不是只有一種病</a>
+    <a href="#same-diagnosis">同病也不一定相同</a>
+    <a href="#treatment-options">治療不只一條路</a>
+    <a href="#diagnosis-matters">診斷影響策略</a>
+    <a href="#adjustment">治療可以再調整</a>
+    <a href="#actions">一起開始三件事</a>
+    <a href="#help">何時需要協助</a>
+  </nav>
+
+  <div class="page">
+    <header>
+      <img class="hero" src="mental-illness-treatment-differences.webp" width="1200" height="600" alt="精神科門診中，醫師與來談者一起討論心理治療、藥物、睡眠、活動與家人支持等不同治療選項的插畫">
+      <div class="title-block">
+        <h1>精神疾病不只一種：為什麼治療方式也不會都一樣？</h1>
+        <p class="subtitle">了解不同診斷、病程與生活需求，為什麼會帶來不同的治療選擇，也讓我們更容易和醫療人員一起找到適合的方向。</p>
+        <p class="couplet" aria-label="病症各有不同樣，療法因人細商量"><span>病症各有不同樣</span>　<span>療法因人細商量</span></p>
+      </div>
+
+      <section class="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">先掌握三個重點</h2>
+        <ul>
+          <li><strong>精神疾病是一大群不同健康問題。</strong>不同疾病、病程階段與嚴重度，治療重點可能不同，不能用單一方法概括。</li>
+          <li><strong>看精神科不等於一定吃同一種藥。</strong>心理治療、藥物、家庭支持與復健，各有適用情況，也可能互相搭配。</li>
+          <li><strong>治療可以共同決定。</strong>我們可以整理最困擾的症狀、生活影響、治療反應與在意的副作用，再和醫療人員一起討論合適方案。</li>
+        </ul>
+        <p class="safety-note">若有立即自傷、傷人風險，或明顯失去現實判斷而無法維持安全，請立即尋求醫療協助。</p>
+      </section>
+
+      <details class="mobile-nav">
+        <summary>展開文章段落導覽</summary>
+        <nav aria-label="行動版文章段落導覽">
+          <a href="#many-conditions">不是只有一種病</a>
+          <a href="#same-diagnosis">同病也不一定相同</a>
+          <a href="#treatment-options">治療不只一條路</a>
+          <a href="#diagnosis-matters">診斷影響策略</a>
+          <a href="#adjustment">治療可以再調整</a>
+          <a href="#actions">一起開始三件事</a>
+          <a href="#help">何時需要協助</a>
+        </nav>
+      </details>
+    </header>
+
+    <main id="main-content">
+      <article>
+        <section id="many-conditions" aria-labelledby="many-conditions-title">
+          <h2 id="many-conditions-title">精神疾病，不是一種病的不同程度</h2>
+          <p>精神疾病不是單一疾病，而是一大群會影響情緒、思考、知覺、注意力、行為或生活功能的健康問題。憂鬱症、焦慮症、雙相情緒障礙、思覺失調症、成癮與其他疾病，背後的症狀組合、病程與風險並不相同。因此，「有精神疾病就用同一套治療」並不是臨床實際情況。世界衛生組織的精神健康指引，也依不同疾病分別提出心理、藥物與社會支持等處置建議。<a class="citation" href="#ref-1" aria-label="參考資料 1">[1]</a></p>
+        </section>
+
+        <section id="same-diagnosis" aria-labelledby="same-diagnosis-title">
+          <h2 id="same-diagnosis-title">就算病名一樣，需要的幫助也可能不同</h2>
+          <p>即使診斷名稱一樣，每個人的困擾也可能很不一樣。有人最在意睡眠，有人受到恐慌、低落、幻聽、衝動或工作功能下降影響；同時是否有身體疾病、懷孕可能、物質使用、過去治療經驗與可接受的副作用，也會改變選擇。治療的目標不是只把病名「壓下去」，而是一起確認哪些症狀最需要改善、哪些風險要先處理，以及什麼方式最符合當下需要。</p>
+          <p>治療方式不同，也不表示哪一種疾病「比較嚴重」或哪一種治療「比較高級」。有些人以心理治療為主，有些人需要規律用藥，有些人則在急性期需要更密集的照護；特定嚴重或治療反應有限的情況，也可能由專科團隊評估其他介入。這些方法各有適應症、風險與證據範圍，不能只看名稱決定，更不宜因為接受某種治療就替一個人貼上嚴重程度的標籤。<a class="citation" href="#ref-1" aria-label="參考資料 1">[1]</a></p>
+        </section>
+
+        <section id="treatment-options" aria-labelledby="treatment-options-title">
+          <h2 id="treatment-options-title">心理治療、藥物與支持，並不是互相排斥</h2>
+          <p>心理治療、藥物、家庭與社會支持，都可能是精神醫療的一部分，但不代表每個人都需要全部使用。以成人較輕度憂鬱為例，NICE 指引並不把抗憂鬱藥列為例行第一線，而是重視心理與低強度介入、個人需求與偏好；較嚴重或不同型態的憂鬱，選項又會不同。<a class="citation" href="#ref-2" aria-label="參考資料 2">[2]</a> 相反地，某些思覺失調或躁期狀態，藥物往往更接近治療核心，並可再搭配心理、家庭或復健支持。<a class="citation" href="#ref-1" aria-label="參考資料 1">[1]</a></p>
+        </section>
+
+        <section id="diagnosis-matters" aria-labelledby="diagnosis-matters-title">
+          <h2 id="diagnosis-matters-title">看起來相似的症狀，治療策略可能很不一樣</h2>
+          <p>同一種「情緒低落」也不一定代表同一種疾病。單極性憂鬱與雙相情緒障礙的憂鬱期，表面上都可能出現低落、失眠或無力，但治療策略並不能直接互換。雙相情緒障礙還要考量躁期、混合特徵、復發預防與情緒轉換風險；近年的 CANMAT／ISBD 更新也依急性躁期、雙相憂鬱與維持期分別整理治療選項。<a class="citation" href="#ref-3" aria-label="參考資料 3">[3]</a> 台灣的雙相情緒障礙藥物治療共識同樣依病程階段整理不同選項。<a class="citation" href="#ref-4" aria-label="參考資料 4">[4]</a></p>
+          <p>另外，診斷常常需要時間釐清。睡不好、注意力差、情緒起伏、胸悶或腦中停不下來，可能出現在不同精神疾病，也可能與身體疾病、藥物、酒精或其他物質有關。初次評估與後續追蹤的資料越完整，越有助於區分不同可能。若病程中出現新的躁期、精神病症狀、明顯功能下降或其他重大變化，原先的治療計畫也可能需要重新檢視。</p>
+        </section>
+
+        <section id="adjustment" aria-labelledby="adjustment-title">
+          <h2 id="adjustment-title">治療不是一次決定，之後仍可以調整</h2>
+          <p>開始治療後，醫療團隊會看症狀、生活功能、副作用、可持續性與個人感受，再判斷是否維持、調整或加入其他方法。若第一個方法效果有限，並不等於「沒救」或「治療失敗」，而可能只是需要重新確認診斷、共病、壓力來源、治療劑量或介入方式。共同決策的重點，是讓醫療專業與我們自己的生活目標一起進入選擇。<a class="citation" href="#ref-2" aria-label="參考資料 2">[2]</a></p>
+          <p>有時候我們會聽到「朋友吃這顆就好了」「某種心理治療最有效」，但別人的經驗只能當參考，不能直接複製。不同疾病、不同階段，甚至同一疾病不同的人，都可能對療效與副作用有不同反應。自行借藥、停藥、換藥或調整劑量，可能讓症狀反彈、出現停藥反應，或錯過更適合的處置；如果想改變治療方式，可以把原因與擔心直接帶回門診討論。</p>
+
+          <details class="study-details">
+            <summary>想多了解研究與指引怎麼看</summary>
+            <div class="details-body">
+              <p>WHO 2023 年 mhGAP 第三版整合多類精神、神經與物質使用問題的證據，新增或更新多項建議；它不是把所有精神疾病放進同一治療流程，而是依疾病類別與臨床情境分開處理。<a class="citation" href="#ref-1" aria-label="參考資料 1">[1]</a> 憂鬱症指引強調依嚴重度、過去反應與偏好選擇治療，<a class="citation" href="#ref-2" aria-label="參考資料 2">[2]</a> 雙相情緒障礙更新則進一步顯示，同一診斷在不同病程階段也需要不同策略。<a class="citation" href="#ref-3" aria-label="參考資料 3">[3]</a></p>
+              <p>這些指引與綜述提供的是群體層次證據，實際治療仍需由臨床評估轉化成個別計畫；同一個診斷名稱，不等於每個人都會得到完全一樣的處方或治療安排。</p>
+            </div>
+          </details>
+        </section>
+
+        <aside class="core-message" aria-label="核心訊息">
+          <strong>核心訊息：</strong>精神疾病有不同類型，同一疾病也有不同階段與個人差異；治療的重點不是找一套「大家都一樣」的方法，而是找到符合診斷、風險、生活目標與個人偏好的組合。
+        </aside>
+      </article>
+
+      <section class="actions" id="actions" aria-labelledby="actions-title">
+        <h2 id="actions-title">三個可以一起開始的具體做法</h2>
+        <div class="action-item">
+          <h3>先記下最困擾的三件事</h3>
+          <p>我們可以一起從「睡眠、情緒、思考、身體感受、工作或關係」中，寫下目前最想改善的三項。若一次很難整理，只記一項也可以，這能讓回診更容易聚焦真正影響生活的地方。</p>
+        </div>
+        <div class="action-item">
+          <h3>把正在使用的治療與藥物整理好</h3>
+          <p>我們先試著列出目前的藥物、心理治療、保健品與其他醫療處置，以及哪些地方有效、哪些地方困擾。若名稱記不住，帶藥袋、處方或照片即可，不需要靠記憶全部說完整。</p>
+        </div>
+        <div class="action-item">
+          <h3>準備一個共同決策問題</h3>
+          <p>我們不妨先問：「這個治療主要想改善什麼？還有其他選擇嗎？我要特別注意哪些副作用或變化？」如果當下緊張，可以把問題先寫在手機或紙上，照著念也可以。</p>
+        </div>
+      </section>
+
+      <section class="help" id="help" aria-labelledby="help-title">
+        <h2 id="help-title">什麼情況需要尋求協助？</h2>
+        <p>若症狀持續、變得更頻繁，或已影響上班、上學、睡眠、自我照顧與重要關係，可以安排精神科、身心科或其他合格心理健康專業人員評估；正在治療中但副作用明顯、療效不如預期，也適合回診討論，而不是自行調整藥物。</p>
+        <p class="urgent">若出現明確自傷或傷人計畫、無法維持自身安全、嚴重混亂，或明顯失去現實判斷並伴隨危險行為，請立即尋求急診或緊急醫療協助。</p>
+      </section>
+
+      <p class="notice"><strong>重要提醒：</strong>本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。</p>
+
+      <ul class="tags" aria-label="延伸標籤">
+        <li>#精神疾病</li>
+        <li>#精神科治療</li>
+        <li>#心理治療</li>
+        <li>#精神科藥物</li>
+        <li>#共同決策</li>
+        <li>#雙相情緒障礙</li>
+        <li>#憂鬱症治療</li>
+      </ul>
+
+      <section class="references" id="references" aria-labelledby="references-title">
+        <h2 id="references-title">參考資料</h2>
+        <ol>
+          <li id="ref-1">World Health Organization. <em>Mental Health Gap Action Programme (mhGAP) guideline for mental, neurological and substance use disorders</em>. 3rd ed. Geneva: World Health Organization; 2023. <a href="https://www.who.int/publications/i/item/9789240084278" target="_blank" rel="noopener noreferrer">WHO guideline</a></li>
+          <li id="ref-2">National Institute for Health and Care Excellence. <em>Depression in adults: treatment and management (NG222)</em>. London: NICE; 2022. <a href="https://www.nice.org.uk/guidance/ng222" target="_blank" rel="noopener noreferrer">NICE NG222</a></li>
+          <li id="ref-3">Keramatian K, Chithra NK, Yatham LN. The CANMAT and ISBD Guidelines for the Treatment of Bipolar Disorder: Summary and a 2023 Update of Evidence. <em>Focus (Am Psychiatr Publ)</em>. 2023;21(4):344-353. doi:10.1176/appi.focus.20230009. <a href="https://doi.org/10.1176/appi.focus.20230009" target="_blank" rel="noopener noreferrer">DOI</a></li>
+          <li id="ref-4">Cheng CM, Chang WH, Lin YT, Chen PS, Yang YK, Bai YM; TSBPN Bipolar Taskforce. Taiwan consensus on biological treatment of bipolar disorder during the acute, maintenance, and mixed phases: The 2022 update. <em>Asian J Psychiatr</em>. 2023;82:103480. doi:10.1016/j.ajp.2023.103480. <a href="https://doi.org/10.1016/j.ajp.2023.103480" target="_blank" rel="noopener noreferrer">DOI</a></li>
+        </ol>
+        <p class="more-link"><strong>延伸衛教資料：</strong><a href="https://nazareth.elaiis.com/#edu-articles" target="_blank" rel="noopener noreferrer">更多健康衛教文章</a></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>閱讀健康資訊時，保留提問與討論的空間，往往比套用單一答案更重要。</p>
+    </footer>
+  </div>
+</body>
+</html>
