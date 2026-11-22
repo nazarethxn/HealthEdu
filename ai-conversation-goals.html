@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跟 AI 對話，怎麼和人聊得更好、想得更深，也更有創意？｜欣寧身心診所身心小語</title>
+  <meta name="description" content="和 AI 對話前，先想想這次最想做的是什麼。從關心朋友、釐清工作上的誤會，到做一張有回憶的生日卡，練習問得更貼近對方、找出自己忽略的線索，也讓新點子帶著自己的生活經驗。每個情境都有一句能試著開口的話。">
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #fbfaf7;
+  --ink: #293431;
+  --teal: #175750;
+  --muted: #52645e;
+  --line: #cbd8cf;
+  --wash: #edf4ee;
+  --focus: #994214;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-size: 1.125rem; line-height: 1.8; }
+p, h1, h2, h3, ul, ol { margin: 0; }
+h1, h2, h3 { hanging-punctuation: allow-end; }
+h1, h2, h3, p, li, summary, a { overflow-wrap: anywhere; }
+h1, h2, h3, strong { font-weight: 700; }
+h1, h2, h3 { color: var(--teal); }
+h1 {
+  max-width: 22em;
+  font-size: clamp(1.8125rem, 1.38rem + 1.55vw, 2.5rem);
+  letter-spacing: .015em;
+  line-height: 1.32;
+  text-wrap: balance;
+}
+.phrase { display: inline-block; max-width: 100%; }
+h2 { font-size: clamp(1.375rem, 1.21rem + .6vw, 1.65rem); line-height: 1.48; }
+h3 { font-size: 1.1875rem; line-height: 1.55; }
+a { color: #115e63; text-underline-offset: .2em; text-decoration-thickness: .08em; }
+a:hover { color: #873e20; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+[id] { scroll-margin-block-start: 1.15rem; }
+
+.skip {
+  position: absolute;
+  z-index: 2;
+  top: .5rem;
+  left: .5rem;
+  transform: translateY(-170%);
+  padding: .55rem 1rem;
+  border-radius: .4rem;
+  background: white;
+  font-size: 1rem;
+}
+.skip:focus { transform: none; }
+
+.page { width: 100%; margin-inline: auto; }
+article { width: 100%; max-width: 52rem; margin-inline: auto; padding-bottom: 3rem; }
+.hero { display: block; width: 100%; max-width: 100%; height: auto; }
+.reading { width: calc(100% - clamp(2.25rem, 9vw, 3.5rem)); max-width: 47.5rem; margin-inline: auto; }
+.title-block { margin-block: 1.4rem 1.55rem; }
+.mastline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .15rem .75rem;
+  margin-bottom: .7rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.column { color: #3b5f53; font-weight: 700; letter-spacing: .055em; }
+.category { color: var(--muted); }
+.subtitle { margin-top: .8rem; font-size: clamp(1.125rem, 1.05rem + .35vw, 1.25rem); color: #40534b; line-height: 1.65; text-wrap: balance; }
+.couplet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.3em;
+  margin-top: 1rem;
+  padding-inline-start: .85rem;
+  border-inline-start: 3px solid #bd895b;
+  color: #5a4a37;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  letter-spacing: .05em;
+}
+.couplet span { display: block; }
+
+.takeaways, .core, .references { border: 1px solid var(--line); border-radius: .85rem; }
+.takeaways {
+  background: var(--wash);
+  padding: 1.15rem clamp(.95rem, 3vw, 1.75rem) 1.2rem;
+  box-shadow: 0 2px 9px rgb(36 63 47 / 5%);
+}
+.takeaways h2 { font-size: 1.3125rem; margin-bottom: .6rem; }
+.takeaways ul { padding-inline-start: 1.15em; }
+.takeaways li { padding-inline-start: .16em; }
+.takeaways li + li { margin-top: .55rem; }
+.takeaways li::marker { color: #56816a; font-size: .82em; }
+.takeaways strong, .story strong { color: #244d43; }
+
+summary { cursor: pointer; min-height: 44px; padding: .65rem .9rem; font-size: 1.0625rem; color: var(--teal); font-weight: 700; }
+summary::marker { color: var(--teal); }
+details > summary:hover { background: #e6efe8; }
+.mobile-nav, .extra { border: 1px solid var(--line); border-radius: .65rem; background: #f5f7f1; }
+.mobile-nav { margin-top: 1rem; }
+.mobile-nav summary, .extra summary { border-radius: .6rem; }
+.toc-items { padding: 0; list-style: none; }
+.toc-items a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .4rem .1rem;
+  color: #31594d;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.toc-items a:hover { text-decoration: underline; }
+.toc-items li + li { border-top: 1px solid #d8e1d8; }
+.mobile-nav nav { padding: 0 .95rem .45rem; }
+.desktop-nav { display: none; }
+
+.story, .practices, .help { margin-top: 2.2rem; }
+.story + .story, .help { border-top: 1px solid var(--line); padding-top: 1.75rem; }
+.story h2, .practices > h2, .help h2 { margin-bottom: .75rem; }
+.story p + p { margin-top: .85rem; }
+.cite { font-size: 1rem; margin-inline-start: .16em; white-space: nowrap; font-weight: 600; }
+.extra { margin-top: 1rem; }
+.extra-body { padding: .15rem 1rem 1rem; font-size: 1.0625rem; }
+.core {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: #e8f1ef;
+  border-inline-start: .3rem solid #428174;
+  color: var(--teal);
+  font-weight: 700;
+  line-height: 1.75;
+  box-shadow: 0 2px 9px rgb(36 63 47 / 5%);
+}
+.practice-items { padding: 0; margin-top: 1rem; list-style: none; }
+.practice-items li { padding-inline-start: .9rem; border-inline-start: 3px solid #b88c5d; }
+.practice-items li + li { margin-top: 1.1rem; }
+.practice-items p { margin-top: .22rem; }
+.help p + p { margin-top: .7rem; }
+.disclaimer { font-size: 1rem; color: var(--muted); }
+.tags { margin: 1.6rem 0; padding: 0; display: flex; gap: .2rem 1rem; flex-wrap: wrap; list-style: none; color: #395f53; font-size: 1rem; }
+.references { padding: 1rem clamp(.85rem, 2.5vw, 1.45rem); background: #f0f3ef; }
+.references h2 { margin-bottom: .65rem; font-size: 1.3rem; }
+.references ol { padding-inline-start: 1.6em; font-size: 1rem; line-height: 1.65; }
+.references li { padding: .3rem .15rem; }
+.references li::marker { font-weight: 700; color: var(--teal); }
+.references li + li { margin-top: .45rem; padding-top: .8rem; border-top: 1px solid #d2dcd2; }
+.references li:target { background: #fff7d9; }
+.doi { display: block; padding-block: .45rem; min-height: 44px; }
+.more { margin-top: 1.2rem; }
+.more a { display: inline-flex; align-items: center; gap: .45em; padding-block: .45rem; min-height: 44px; font-weight: 700; }
+
+@media (max-width: 30rem) {
+  .couplet { flex-direction: column; }
+}
+@media (min-width: 40rem) {
+  .title-line { display: block; }
+  .page { width: calc(100% - 3rem); padding-top: 1.5rem; }
+  .hero { border-radius: .85rem; }
+  .title-block { margin-block: 1.8rem; }
+  .story, .practices, .help { margin-top: 2.65rem; }
+}
+@media (min-width: 80rem) {
+  .page { max-width: 1120px; }
+  article { max-width: 832px; margin-left: 0; }
+  .mobile-nav { display: none; }
+  .desktop-nav {
+    display: block;
+    position: fixed;
+    top: 2rem;
+    left: calc(50% + 328px);
+    width: 232px;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    border-top: 3px solid #427565;
+    padding: .8rem .65rem .45rem;
+  }
+  .nav-title { color: var(--teal); font-size: 1.125rem; font-weight: 700; margin-bottom: .45rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#talk">跳至文章內容</a>
+  <div class="page">
+    <main>
+      <article aria-labelledby="article-title">
+        <header>
+          <img class="hero" src="ai-conversation-goals.webp" width="1200" height="600" alt="女兒指著手繪的番茄攤生日卡，聽媽媽說起往事。桌邊平板上有對話圖示。">
+          <div class="reading title-block">
+            <div class="mastline"><p class="column">欣寧身心診所身心小語</p><p class="category">數位心理健康</p></div>
+            <h1 id="article-title"><span class="title-line">跟 AI 對話，怎麼和人<span class="phrase">聊得更好、</span></span><span class="title-line"><span class="phrase">想得更深，</span><span class="phrase">也更有創意？</span></span></h1>
+            <p class="subtitle">從一句問候、一場誤會和一張生日卡，練習把 AI 的建議用在螢幕外。</p>
+            <p class="couplet"><span>多聽一句懂心意</span> <span>換個角度看難題</span></p>
+          </div>
+        </header>
+        <div class="reading">
+          <section class="takeaways" aria-labelledby="takeaway-title">
+            <h2 id="takeaway-title">先掌握三個重點</h2>
+            <ul><li><strong>想和人說得更清楚，</strong>可以先請 AI 看看草稿裡哪句話可能讓人誤解，再用自己的語氣開口。對方怎麼想，留給本人回答。</li>
+<li><strong>AI 同意我們的看法，</strong>事情仍可能有別的解釋。請它指出一個被忽略的可能，再問自己，有什麼證據會讓我改變想法？</li>
+<li><strong>想找新點子，</strong>先記下一個自己熟悉的生活細節，再請 AI 提供幾種不同的做法。從中挑一個親手試試，保留最像自己的部分。</li></ul>
+          </section>
+          <details class="mobile-nav">
+            <summary>段落導覽</summary>
+            <nav aria-label="行動版段落導覽"><ul class="toc-items"><li><a href="#talk">練習開口</a></li>
+<li><a href="#think">檢查自己的推論</a></li>
+<li><a href="#create">找自己的點子</a></li>
+<li><a href="#act">何時收起螢幕</a></li>
+<li><a href="#practice">三個具體做法</a></li>
+<li><a href="#support">何時尋求支持</a></li>
+<li><a href="#references">參考資料</a></li></ul></nav>
+          </details>
+          <section class="story" id="talk" tabindex="-1">
+<h2>朋友說「最近好累」，怎麼問才能更懂他？</h2>
+<p>朋友傳來「最近好累」，我們打了幾個字又刪掉。本來想說「你該早點睡」，卻擔心他已經很累，還要聽人講道理。這時可以把草稿交給 AI，直接問它「我想關心朋友。這句話哪裡猜了他累的原因？我可以改成怎樣的問句？」</p>
+<p>練習時，省去姓名和能認出對方的細節，用自己的話交代情境就夠了。見面時可以問他「你上次說下班很累，我一直記得。最近哪段時間最辛苦？」<strong>問完停一下。</strong>如果他說「累的是別的事」，就請他從那裡說起。如果他只想安靜吃頓飯，坐下來陪他，也是一種回應。</p>
+<p>一項線上同儕支持實驗請參與者寫下安慰人的回覆。能參考 AI 修改建議的一組，寫出的文字較常被其他人評為有同理心。這項研究只評估回覆裡表達的同理心，原本求助的人有什麼感受，仍要聽本人怎麼說。<a class="cite" href="#ref-1" aria-label="參考文獻 1，線上同理回應">[1]</a></p>
+</section>
+<section class="story" id="think" tabindex="-1">
+<h2>AI 也覺得我有理，還有什麼值得想？</h2>
+<p>同事把會議排在你休假的下午，你有些委屈，心想「他是不是不想讓我參加？」日期撞期是已經知道的事，對方是否看過你的假單，卻還不清楚。我們可以把自己的看法寫下來，再問 AI「我在哪裡做了假設？還有什麼解釋可以查證？」</p>
+<p>試著說出<strong>哪條線索會讓自己改觀</strong>。例如，若會議早在你請假前就已排定，「刻意把我排除」就少了一個根據。查過邀請信的日期，再向同事確認。如果確實無法改期，也能說出自己需要的協助，問問「我想讓大家聽到我的意見，可以事先寄給誰？」</p>
+<p>三項討論人際衝突的實驗發現，和一味附和自己的 AI 互動後，參與者更相信自己有理，也較不願意採取行動修補關係。研究觀察的是當下表達的意願，關係後來如何仍是另一個問題。讀到讓自己很舒坦的答覆時，值得再看看還缺了誰的說法。<a class="cite" href="#ref-2" aria-label="參考文獻 2，AI 附和與人際判斷">[2]</a></p>
+<details class="extra"><summary>換個情境，試著問一個會改變決定的問題</summary>
+<div class="extra-body"><p>假設你想報名下班後的烹飪課，又怕忙起來去不了。先寫下自己的理由，再請 AI 針對你最猶豫的地方提一個問題，例如「你擔心每週都趕不上，還是只有月底會加班？」你可能發現，自己最在意的是能不能趕上第一堂課，費用反而排在後面。</p>
+<p>接下來能回答這個問題的，是課程表、下班的公車時刻，還有你走到教室要花的時間。找一天按原定時間走一趟，把查到的資訊補進來。如果班表不固定，還可以問問老師，碰上加班有沒有別的時段可以補課。即使最後仍決定報名，你也知道是哪個理由讓自己點頭。</p></div>
+</details>
+</section>
+<section class="story" id="create" tabindex="-1">
+<h2>怎麼借一點靈感，做出一看就知道是你送的卡片？</h2>
+<p>想替媽媽做生日卡，腦中只浮出「生日快樂」四個字。<strong>先回想一個兩個人才熟悉的畫面。</strong>也許小時候逛市場，媽媽會把一顆番茄放到你手心，要你掂掂看。帶著這一幕去問 AI「除了寫一段祝福，還有哪三種方式能把這個回憶放進卡片？」</p>
+<p>假如收到的點子是畫一張地圖、寫一份食譜、做一張買菜清單，就挑最想動手的那個。你可以畫下市場的轉角和番茄攤，旁邊留一格，等媽媽添上她記得的店。畫到哪裡、哪一格要留給她，這些小決定讓卡片有了你們家的樣子。</p>
+<p>一項英文短篇故事實驗發現，能向 AI 索取靈感的作者，作品平均獲得較高的創意評分，這些故事彼此也更相似。研究評的是當次寫出的作品，無法判斷作者往後獨立創作的能力。做自己的卡片時，可以保留好用的形式，把內容換成親身經歷的細節。<a class="cite" href="#ref-3" aria-label="參考文獻 3，AI 靈感與短篇創作">[3]</a></p>
+</section>
+<section class="story" id="act" tabindex="-1">
+<h2>聊到什麼時候，可以收起螢幕了？</h2>
+<p>有一句想親口問的話、一個值得查的疑點，或一個可以試做的點子，就到了暫停的好時機。把卡片拿到媽媽面前，或許她會笑著說「賣番茄的阿姨以前在對面啦！」讓她接著說下去，原本要送給她的祝福，就成了兩個人都能接著說的故事。</p>
+<p>如果一直修改，先看看自己在等什麼。有時我們想找到一句保證不會惹對方生氣的話，或擔心畫得太醜被笑。這時可以把第一步縮小，先問「現在方便聊兩句嗎？」，或先用鉛筆畫出一個攤位，給自己留點修改的空間。</p>
+<p>真的試過以後，<strong>留意一件出乎意料的小事。</strong>也許朋友告訴你，下班那段路是他整天最不想說話的時候，但隔天午休很想找人坐坐。下次碰面，你就能問「今天午休要不要一起吃飯？」這次聽來的答案，也成了下回關心他時用得上的線索。</p>
+</section>
+          <aside class="core" aria-label="核心訊息"><p>跟 AI 聊完，帶走一句想問本人的話、一個值得查證的問題，或一個想親手試的點子。</p></aside>
+          <section class="practices" id="practice" tabindex="-1">
+            <h2>三個可以一起開始的具體做法</h2>
+            <ul class="practice-items"><li><h3>把一句建議改成問句</h3><p>挑一段想說的話，請 AI 找出哪裡預設了對方的心情，再自己改寫。若一時找不到說法，先問一句「你想說說看嗎？」就好。</p></li>
+<li><h3>替自己的看法找一個反例</h3><p>寫下「我目前這麼想，因為……」，請 AI 提出一種可能讓這個理由站不住腳的情況。若還想不到怎麼查，只寫下「這件事可以問誰？」</p></li>
+<li><h3>替一個點子加上生活細節</h3><p>從 AI 提出的做法中挑一個，放進你親眼見過的東西，動手做個草稿。時間很少時，先寫下一個地名、一道菜，或家人常說的一句話。</p></li></ul>
+          </section>
+          <section class="help" id="support" tabindex="-1">
+            <h2>什麼時候值得找人談談？</h2>
+            <p>如果反覆向 AI 確認後仍因擔心說錯話而避開見面，焦慮已影響睡眠、上學或工作，可以帶著最近一次的例子，和醫師或心理師談談。</p>
+            <p class="disclaimer">本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。</p>
+          </section>
+          <footer>
+            <ul class="tags" aria-label="主題標籤"><li>#生成式人工智慧</li>
+<li>#人際溝通</li>
+<li>#同理傾聽</li>
+<li>#獨立思考</li>
+<li>#觀點轉換</li>
+<li>#創意練習</li>
+<li>#數位生活</li></ul>
+            <section class="references" id="references" tabindex="-1">
+              <h2>參考資料</h2>
+              <ol><li id="ref-1" tabindex="-1"><span lang="en">Sharma A, Lin IW, Miner AS, Atkins DC, Althoff T. Human–AI collaboration enables more empathic conversations in text-based peer-to-peer mental health support. Nat Mach Intell. 2023;5(1):46–57.</span> <a class="doi" href="https://doi.org/10.1038/s42256-022-00593-2" aria-label="開啟文獻 1，線上同理回應的 DOI 連結"><span lang="en">DOI 10.1038/s42256-022-00593-2</span></a></li>
+<li id="ref-2" tabindex="-1"><span lang="en">Cheng M, Lee C, Khadpe P, Yu S, Han D, Jurafsky D. Sycophantic AI decreases prosocial intentions and promotes dependence. Science. 2026;391(6792):eaec8352.</span> <a class="doi" href="https://doi.org/10.1126/science.aec8352" aria-label="開啟文獻 2，AI 附和與人際判斷的 DOI 連結"><span lang="en">DOI 10.1126/science.aec8352</span></a></li>
+<li id="ref-3" tabindex="-1"><span lang="en">Doshi AR, Hauser OP. Generative AI enhances individual creativity but reduces the collective diversity of novel content. Sci Adv. 2024;10(28):eadn5290.</span> <a class="doi" href="https://doi.org/10.1126/sciadv.adn5290" aria-label="開啟文獻 3，AI 靈感與短篇創作的 DOI 連結"><span lang="en">DOI 10.1126/sciadv.adn5290</span></a></li></ol>
+            </section>
+            <p class="more"><a href="https://nazareth.elaiis.com/#edu-articles">延伸衛教資料 <span aria-hidden="true">↗</span></a></p>
+          </footer>
+        </div>
+      </article>
+    </main>
+    <nav class="desktop-nav" aria-label="桌面版段落導覽">
+      <p class="nav-title">段落導覽</p>
+      <ul class="toc-items"><li><a href="#talk">練習開口</a></li>
+<li><a href="#think">檢查自己的推論</a></li>
+<li><a href="#create">找自己的點子</a></li>
+<li><a href="#act">何時收起螢幕</a></li>
+<li><a href="#practice">三個具體做法</a></li>
+<li><a href="#support">何時尋求支持</a></li>
+<li><a href="#references">參考資料</a></li></ul>
+    </nav>
+  </div>
+</body>
+</html>
