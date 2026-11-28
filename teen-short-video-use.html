@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="和青少年聊短影片時，可以同時了解看了多久、想停時有多難。從一項青少年追蹤研究認識使用時間、掌控感與情緒困擾的關聯，練習從一個問題開始對話，並辨識需要儘快求助或立即就醫的情況。">
+  <meta name="theme-color" content="#faf8f1">
+  <title>談青少年滑短影片，也問想停下來時有多難｜欣寧身心診所身心小語</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", sans-serif;
+      --paper: #faf8f1;
+      --ink: #242e2d;
+      --muted: #435a55;
+      --teal: #174e49;
+      --line: #c6d7cc;
+      --mint: #ebf3ec;
+      --light: #fffdf8;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      overflow-wrap: break-word;
+    }
+    a { color: var(--teal); text-underline-offset: .19em; }
+    :focus-visible { outline: .15rem solid #9b481f; outline-offset: .2rem; }
+    :target { scroll-margin-block-start: 1rem; }
+    .skip {
+      position: fixed;
+      z-index: 5;
+      top: .9rem;
+      left: .9rem;
+      padding: .55rem .9rem;
+      background: var(--light);
+      border: 1px solid var(--teal);
+      border-radius: .3rem;
+      transform: translateY(-200%);
+    }
+    .skip:focus { transform: none; }
+    main {
+      max-width: 832px;
+      margin: 0 auto;
+      padding: clamp(1rem, 3vw, 2.5rem) clamp(1.125rem, 4vw, 2.125rem) 3.5rem;
+    }
+    .hero {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 .4rem 1.3rem #153e3017;
+    }
+    .title-block { padding: 1.35rem 0 1.45rem; }
+    .title-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: .85rem;
+      row-gap: .2rem;
+      margin: 0 0 .65rem;
+      color: var(--teal);
+      font-size: 1rem;
+      font-weight: 650;
+    }
+    .category {
+      padding: .1rem .6rem;
+      background: var(--mint);
+      border: 1px solid #b8cfc1;
+      border-radius: .35rem;
+    }
+    h1, h2, h3 { color: var(--teal); line-height: 1.38; }
+    h1 { margin: 0; font-size: clamp(1.75rem, 1.4rem + 1.65vw, 2.5rem); }
+    h2 { margin: 0 0 .8rem; font-size: clamp(1.4rem, 1.23rem + .55vw, 1.75rem); }
+    h3 { margin: 0 0 .35rem; font-size: 1.125rem; }
+    .subtitle { margin: .8rem 0 0; color: var(--muted); font-size: clamp(1.125rem, 1.07rem + .26vw, 1.25rem); }
+    .couplet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 1.25rem;
+      margin: 1rem 0 0;
+      padding: .24rem 0 .24rem .85rem;
+      border-inline-start: .2rem solid #88b1a0;
+      color: var(--teal);
+      font-size: 1.0625rem;
+    }
+    .couplet span { display: block; }
+    .intro, .takeaway, .help, .references, details {
+      padding: clamp(.85rem, 2.8vw, 1.5rem);
+      border: 1px solid var(--line);
+      border-radius: .85rem;
+      background: var(--light);
+      box-shadow: 0 .16rem .5rem #173a2d0c;
+    }
+    .intro { background: var(--mint); }
+    .intro ol { margin: 0; padding-inline-start: 1.55rem; }
+    .intro li { padding-inline-start: .22rem; }
+    .intro li + li { margin-top: .48rem; }
+    .intro li::marker { color: var(--teal); font-weight: 700; }
+    .urgent {
+      margin: .9rem 0 0;
+      padding: .6rem .85rem;
+      background: #f9eee1;
+      color: #532e25;
+      border-inline-start: .23rem solid #ae673f;
+      border-radius: .25rem;
+    }
+    .urgent a { color: inherit; }
+    .toc-mobile { margin-top: 1.05rem; }
+    .toc-desktop { display: none; }
+    details { padding-block: 0; font-size: 1rem; }
+    summary {
+      display: list-item;
+      min-height: 2.75rem;
+      padding: .52rem .1rem;
+      color: var(--teal);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    details[open] > summary { border-bottom: 1px solid var(--line); }
+    details > p { margin: .75rem 0; }
+    .toc ul { margin: .25rem 0 .45rem; padding: 0; list-style: none; }
+    .toc a {
+      display: flex;
+      align-items: center;
+      min-height: 2.75rem;
+      padding: .38rem .45rem;
+      line-height: 1.5;
+    }
+    .topic, .actions, .help, footer { margin-block-start: clamp(1.8rem, 4.5vw, 3rem); }
+    .topic + .topic { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+    .topic p, .actions p, .help p { margin: 0 0 .85rem; }
+    .topic p:last-child, .actions p:last-child, .help p:last-child { margin-bottom: 0; }
+    .research { margin-block-start: .9rem; background: #eef4f4; }
+    .research > p { margin: .7rem 0 .9rem; }
+    .cite {
+      display: inline-block;
+      font-size: .8rem;
+      line-height: 1;
+      vertical-align: super;
+      margin-inline: .08em;
+      white-space: nowrap;
+    }
+    .cite a { padding: .4rem .08rem; }
+    .takeaway { margin-block-start: 1.4rem; background: #eaf2f5; }
+    .takeaway p { margin: 0; color: #193f4d; font-weight: 700; }
+    .actions ol { margin: 0; padding-inline-start: 1.4rem; }
+    .actions li { padding-inline-start: .2rem; }
+    .actions li::marker { color: var(--teal); font-weight: 700; }
+    .actions li + li { margin-top: .9rem; }
+    .help { background: #fff8ed; border-color: #d9c4ab; }
+    .help h2, .help h3 { color: #643b2c; }
+    .help h3 + p { margin-block-end: .85rem; }
+    .help h3:last-of-type + p { margin-block-end: 0; }
+    footer { border-top: 1px solid var(--line); padding-block-start: 1.25rem; }
+    .disclaimer, .references { font-size: 1rem; }
+    .disclaimer { margin: 0 0 1.2rem; color: var(--muted); }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .42rem;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.4rem;
+      font-size: 1rem;
+    }
+    .tags li {
+      padding: .16rem .55rem;
+      border: 1px solid var(--line);
+      border-radius: .4rem;
+      color: var(--teal);
+      background: var(--mint);
+    }
+    .references { background: #f2f5ef; overflow-wrap: anywhere; }
+    .references h2 { font-size: 1.35rem; }
+    .references p { margin: 0 0 .5rem; }
+    .references ol { margin: 0; padding-inline-start: 1.5rem; }
+    .references li + li { margin-block-start: .7rem; }
+    .references li:target { background: #e4ecdd; }
+    .further { margin: .85rem 0 0; }
+    .further a { display: inline-flex; min-height: 2.75rem; align-items: center; }
+    @media (min-width: 80em) {
+      .toc-mobile { display: none; }
+      .toc-desktop {
+        display: block;
+        position: fixed;
+        inset-block-start: clamp(1.25rem, 7vh, 4rem);
+        inset-inline-start: calc(50% + 432px);
+        width: 168px;
+        max-height: calc(100vh - 5rem);
+        overflow-y: auto;
+        padding: .65rem .7rem;
+        background: var(--light);
+        border: 1px solid var(--line);
+        border-radius: .7rem;
+        font-size: 1rem;
+      }
+      .toc-desktop p { margin: .1rem .45rem .3rem; color: var(--teal); font-weight: 700; }
+      .toc-desktop li + li { border-top: 1px solid #e3eae3; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto; animation: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#summary">跳至文章內容</a>
+  <main>
+    <article aria-labelledby="article-title">
+      <header>
+        <img class="hero" src="teen-short-video-use.webp" width="1200" height="600" alt="晚飯後，媽媽坐到沙發上，和手裡拿著手機的少年聊天。右下角是欣寧身心診所標誌。">
+        <div class="title-block">
+          <p class="title-meta"><span>欣寧身心診所身心小語</span><span class="category">青少年心理</span></p>
+          <h1 id="article-title">談青少年滑短影片，也問想停下來時有多難</h1>
+          <p class="subtitle">和青少年聊短影片，可以同時留意觀看時間與使用時的掌控感。</p>
+          <p class="couplet"><span>滑了多久先聊起</span><span>想停多難別心急</span></p>
+        </div>
+      </header>
+
+      <section class="intro" id="summary" tabindex="-1" aria-labelledby="summary-title">
+        <h2 id="summary-title">先掌握三個重點</h2>
+        <ol>
+          <li>聊短影片時，可以同時問孩子看了多久、想停時有多難，也了解這樣的使用方式有沒有影響到睡眠、上課或原本想做的事。</li>
+          <li>觀看時間長和難以停下只有部分重疊。追蹤研究發現兩者持續偏高與心理困擾有關，仍無法判定短影片造成了這些困擾。<sup class="cite"><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup></li>
+          <li>挑彼此有空的時候，問孩子最近哪一次原本想停，後來卻又滑了一陣。一起想一個他願意試的停點，也聽聽最近有沒有別的心事。</li>
+        </ol>
+        <p class="urgent"><strong>若孩子現在有自殺念頭、已有自殺計畫或剛有自殺行動，請立即尋求醫療協助。</strong> 請陪同前往急診，或撥打 <a href="tel:119">119 叫救護車</a>。</p>
+      </section>
+
+      <details class="toc-mobile">
+        <summary>段落導覽</summary>
+        <nav class="toc" aria-label="文章段落導覽">
+          <ul>
+            <li><a href="#conversation">飯後怎麼開口</a></li>
+            <li><a href="#control">怎麼看掌控感</a></li>
+            <li><a href="#study">追蹤研究發現</a></li>
+            <li><a href="#context">怎麼理解關聯</a></li>
+            <li><a href="#distress">聽見孩子困擾</a></li>
+            <li><a href="#actions">一起開始做法</a></li>
+            <li><a href="#help">求助時機</a></li>
+          </ul>
+        </nav>
+      </details>
+
+      <section class="topic" id="conversation" tabindex="-1">
+        <h2>飯後滑個不停，可以怎麼開口？</h2>
+        <p>晚飯後，阿哲靠在沙發上滑短影片。媽媽收完碗回到客廳，看見他又滑過幾支影片，便坐到旁邊問：「你原本打算看多久？」等阿哲抬起頭，她再問：「你剛才有想過什麼時候停嗎？」</p>
+        <p>同樣是飯後看一陣子，阿哲可能是特地留時間看喜歡的創作者，也可能早就想去洗澡，手卻一直滑下一支。若他一時答不出來，可以等兩人都比較有空，再請他回想最近的一次。</p>
+        <p>如果他說「我只是想放鬆一下」，可以先聽聽今天發生了什麼。有時他說完才想起，原本還打算做一件事。我們可以接著問他想先做哪件事，或明天遇到同樣的情況時，有沒有自己想試的做法。</p>
+      </section>
+
+      <section class="topic" id="control" tabindex="-1">
+        <h2>孩子說「停不下來」，可以了解什麼？</h2>
+        <p><strong>掌控感是指孩子想停或需要轉去做別的事時，能不能照自己的意思停下來。</strong> 可以請孩子挑兩個晚上來比較，例如一晚看到自己想看的內容就關掉，另一晚卻比原先打算的時間多看了很久。</p>
+        <p>孩子偶爾看超過原訂時間，可以先了解當天的情況。若常想停卻停不下來，或反覆拖到很晚才睡，值得看看這個模式出現多久、在哪些時段最常發生，以及白天精神和日常作息有沒有受影響。</p>
+        <p>手機的使用紀錄可以幫忙回想大致花了多少時間。若孩子願意一起看，可以請他說說那段時間用手機做了什麼。同一支手機也用來找資料、聊天和聽音樂，一天的總數很難回答他看短影片時的感受。</p>
+      </section>
+
+      <section class="topic" id="study" tabindex="-1">
+        <h2>同時看時間與掌控感，追蹤研究發現什麼？</h2>
+        <p>一項在中國南方逐年進行三次調查的追蹤研究，分析一萬多名青少年的資料。第一年，約四分之一只在觀看時間或難以控制使用其中一項偏高，約一成兩項都偏高。同時問這兩件事，可以聽見不同的使用經驗。<sup class="cite"><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup></p>
+        <p>與兩項都偏低的青少年相比，兩項轉為或持續偏高的人，到第三年較常回報自殺念頭、自殺嘗試、無自殺意圖的自傷，以及情緒或行為困擾。研究比較的是一群人的結果，孩子的安全仍需依當下情況判斷。<sup class="cite"><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup></p>
+        <p>研究所說的「無自殺意圖的自傷」，是指當事人傷害自己時，沒有意圖結束生命。研究將這類自傷與自殺嘗試分開記錄。研究的使用分組也各有特定用途，家長可以從時間和掌控感開啟對話，再了解孩子近來的生活變化。<sup class="cite"><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup></p>
+        <details class="research">
+          <summary>選讀補充｜研究怎麼追蹤與分組</summary>
+          <p>研究從 2022 到 2024 年逐年收集資料，分析 10,048 名青少年，第一年平均 13.9 歲。研究把觀看時間、反映難以控制使用的量表表現各分成高與低，再把兩個面向組合，成為四種使用型態。<sup class="cite"><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup></p>
+          <p>第一年，25.8% 只有一項偏高，10.2% 兩項皆高。研究除了比較青少年在追蹤期間是否進入或維持兩項皆高，也比較三次調查中報告兩項皆高的次數。這些分組是研究分析用的分類，無法據此判定個人是否成癮。<sup class="cite"><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup></p>
+        </details>
+      </section>
+
+      <section class="topic" id="context" tabindex="-1">
+        <h2>孩子心情變差，能歸因於短影片嗎？</h2>
+        <p>這項觀察研究無法判定短影片造成了心理困擾，也無法用來決定每個孩子適合看幾分鐘。觀看時間、使用感受和心理情況多由青少年自己填報，可能受回憶影響。研究對象來自中國南方，套用到台灣孩子時也要考量生活環境。<sup class="cite"><a href="#ref-1" aria-label="參考資料 1">[1]</a></sup></p>
+        <p>另一項美國青少年的追蹤研究，觀察的是社群媒體、手機和電玩等更廣的使用情況。使用難以控制且持續偏高或逐漸上升，和自殺念頭或相關行為有關。兩篇研究看的使用活動不同，解讀時要保留這項差異。<sup class="cite"><a href="#ref-2" aria-label="參考資料 2">[2]</a></sup></p>
+        <p>如果孩子最近常睡不好、在學校遇到挫折，或跟朋友相處有壓力，可以聽聽這些事是什麼時候開始的。有些孩子在心情不好時用短影片分心，也有孩子為了多看幾支而晚睡。問清楚先後順序，有助於一起找需要支持的地方。</p>
+      </section>
+
+      <section class="topic" id="distress" tabindex="-1">
+        <h2>對話談到心情或自傷時，怎麼接下去？</h2>
+        <p>如果孩子提到自己很難熬，可以先慢一點，聽他把話說完：「謝謝你願意告訴我。最近什麼事最難受？」當他提到想消失或傷害自己時，可以平靜地問：「你最近有想過自殺嗎？現在有這個念頭嗎？」並聽他回答。<sup class="cite"><a href="#ref-3" aria-label="參考資料 3">[3]</a></sup></p>
+        <p>若孩子曾有自傷，即使他說當時沒有想要結束生命，仍應儘快聯絡兒童青少年精神科或身心科評估。若他現在有自殺念頭、已有計畫或剛有自殺行動，<strong>請立即尋求醫療協助</strong>。請留在孩子身邊，陪同前往急診，或撥打 119 叫救護車。<sup class="cite"><a href="#ref-3" aria-label="參考資料 3">[3]</a></sup><sup class="cite"><a href="#ref-4" aria-label="參考資料 4">[4]</a></sup></p>
+      </section>
+
+      <aside class="takeaway" aria-label="核心訊息">
+        <p>聊短影片時，可以先問看了多久，再聽孩子說說想停時有多難。</p>
+      </aside>
+
+      <section class="actions" id="actions" tabindex="-1">
+        <h2>三個可以一起開始的具體做法</h2>
+        <ol>
+          <li>
+            <h3>先聊一個晚上</h3>
+            <p>挑一個彼此有空的時刻，問「昨晚你原本想看到什麼時候？」若一時聊不下去，可以只問「你覺得哪一段最難停？」聽完就先收在這裡。</p>
+          </li>
+          <li>
+            <h3>約一個容易做到的停點</h3>
+            <p>請孩子選一個他想試的停點，例如洗澡前把影片關掉，然後一起試一個晚上。若這一步太難，可以先試看到一支有趣的影片結束時，放下手機片刻，再決定接下來要做什麼。</p>
+          </li>
+          <li>
+            <h3>留意一次最難停的時候</h3>
+            <p>隔天一起回想，當時是想多看一支、還沒想好接著做什麼，還是心裡有點煩。若孩子不想細談，可以先讓他用自己的話說一個感受，或約他願意的時候再談。</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="help" id="help" tabindex="-1">
+        <h2>什麼時候需要求助？</h2>
+        <h3>可以安排專業評估</h3>
+        <p>如果長期難以停下，明顯影響睡眠、上學或人際，或孩子持續低落、退縮，可以預約兒童青少年精神科或身心科。如果曾經自傷或最近提過自殺念頭，即使當下沒有這個念頭，也請儘快聯絡醫療專業人員。<sup class="cite"><a href="#ref-3" aria-label="參考資料 3">[3]</a></sup></p>
+        <h3>需要立即醫療協助</h3>
+        <p>如果孩子現在有自殺念頭、已有自殺計畫、剛有自殺行動，或自傷導致明顯傷勢、無法確保當下安全，<strong>請立即尋求醫療協助</strong>。請留在孩子身邊，陪同前往最近的急診，或撥打 <a href="tel:119">119 叫救護車</a>。<sup class="cite"><a href="#ref-3" aria-label="參考資料 3">[3]</a></sup><sup class="cite"><a href="#ref-4" aria-label="參考資料 4">[4]</a></sup></p>
+      </section>
+
+      <footer>
+        <p class="disclaimer">本文提供一般健康資訊，不能取代醫師診斷、治療或個別化醫療建議。若症狀持續、惡化或影響日常生活，請尋求合格醫療專業人員評估。</p>
+        <ul class="tags" aria-label="主題標籤">
+          <li>#短影片</li><li>#青少年</li><li>#手機使用</li><li>#螢幕時間</li><li>#親子對話</li><li>#情緒困擾</li><li>#青少年自傷</li>
+        </ul>
+        <section class="references" aria-labelledby="references-title">
+          <h2 id="references-title">參考資料</h2>
+          <p>台灣急診與救護資訊另參考台灣兒童青少年精神醫學會的衛教資料。</p>
+          <ol>
+            <li id="ref-1" tabindex="-1"><span lang="en">Duan Y, Sun Y, Wang J, Jin Y, Cheng X, Ye W, et al. Short-form video use and adolescent suicidality, nonsuicidal self-injury, and mental health. JAMA Pediatr. 2026 Nov 23. Online ahead of print.</span> <a href="https://doi.org/10.1001/jamapediatrics.2026.5235" aria-label="短影片與青少年心理健康追蹤研究 DOI">doi:10.1001/jamapediatrics.2026.5235</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/43071362/">PubMed 摘要</a></li>
+            <li id="ref-2" tabindex="-1"><span lang="en">Xiao Y, Meng Y, Brown TT, Keyes KM, Mann JJ. Addictive screen use trajectories and suicidal behaviors, suicidal ideation, and mental health in US youths. JAMA. 2025;334(3):219-28.</span> <a href="https://doi.org/10.1001/jama.2025.7829" aria-label="美國青少年螢幕使用追蹤研究 DOI">doi:10.1001/jama.2025.7829</a></li>
+            <li id="ref-3" tabindex="-1"><span lang="en">Hua LL, Lee J, Rahmandar MH, Sigel EJ; Committee on Adolescence; Council on Injury, Violence, and Poison Prevention. Suicide and suicide risk in adolescents. Pediatrics. 2024;153(1):e2023064800.</span> <a href="https://doi.org/10.1542/peds.2023-064800" aria-label="青少年自殺風險臨床報告 DOI">doi:10.1542/peds.2023-064800</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/38073403/">PubMed 摘要</a></li>
+            <li id="ref-4" tabindex="-1">林恩聖。<a href="https://www.tscap.org.tw/TW/NewsColumn/ugC_News_Detail.asp?hidnewscatid=8&amp;hidnewsid=164">當孩子有自殺念頭或已有自殺行動，怎麼辦？</a> 台灣兒童青少年精神醫學會。</li>
+          </ol>
+        </section>
+        <p class="further"><a href="https://nazareth.elaiis.com/#edu-articles">延伸衛教資料</a></p>
+      </footer>
+    </article>
+  </main>
+
+  <nav class="toc toc-desktop" aria-label="文章段落導覽">
+    <p>段落導覽</p>
+    <ul>
+      <li><a href="#conversation">飯後怎麼開口</a></li>
+      <li><a href="#control">怎麼看掌控感</a></li>
+      <li><a href="#study">追蹤研究發現</a></li>
+      <li><a href="#context">怎麼理解關聯</a></li>
+      <li><a href="#distress">聽見孩子困擾</a></li>
+      <li><a href="#actions">一起開始做法</a></li>
+      <li><a href="#help">求助時機</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
